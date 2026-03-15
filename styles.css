@@ -386,11 +386,14 @@ main {
 }
 
 .card-grid,
-.scenario-grid { display: grid; gap: 18px; }
+.scenario-grid,
+.shot-grid { display: grid; gap: 18px; }
 .card-grid { grid-template-columns: repeat(4, 1fr); }
+.shot-grid { grid-template-columns: repeat(3, 1fr); }
 .feature-card,
 .scenario-card,
-.timeline-step { border-radius: var(--radius-lg); }
+.timeline-step,
+.shot-card { border-radius: var(--radius-lg); }
 .feature-card { padding: 24px; }
 
 .feature-card h3,
@@ -407,6 +410,33 @@ main {
 
 .scenario-grid { grid-template-columns: repeat(3, 1fr); }
 .scenario-card { padding: 24px; }
+.shot-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.shot-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #08111f;
+}
+.shot-copy {
+  padding: 18px 18px 20px;
+}
+.shot-copy strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: "Sora", sans-serif;
+  font-size: 1.02rem;
+}
+.shot-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
 .scenario-card ul {
   padding-left: 18px;
   margin: 16px 0 0;
@@ -510,6 +540,7 @@ main {
   .contact-panel,
   .card-grid,
   .workflow .timeline,
+  .shot-grid,
   .scenario-grid,
   .stats { grid-template-columns: 1fr 1fr; }
   .hero { align-items: start; }
@@ -533,6 +564,7 @@ main {
   .stats,
   .card-grid,
   .workflow .timeline,
+  .shot-grid,
   .scenario-grid,
   .outputs-layout,
   .contact-panel { grid-template-columns: 1fr; }
