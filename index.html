@@ -20,7 +20,9 @@
   <div class="site-shell">
     <header class="topbar">
       <a class="brand" href="#hero">
-        <span class="brand-mark">G</span>
+        <span class="brand-mark">
+          <img src="assets/app-logo.png" alt="GeckoAI app logo" />
+        </span>
         <span class="brand-text">
           <strong>GeckoAI</strong>
           <small>Industrial Vision Platform</small>
@@ -144,28 +146,62 @@
           <p class="eyebrow">Product Screens</p>
           <h2>Real GeckoAI inspection views from the working interface.</h2>
         </div>
-        <div class="shot-grid">
-          <article class="shot-card">
-            <img src="assets/label-ui.png" alt="GeckoAI label workspace screenshot" />
-            <div class="shot-copy">
-              <strong>Label Workspace</strong>
-              <p>Review labeled components, manage classes, and move through datasets with a production-ready annotation workflow.</p>
-            </div>
-          </article>
-          <article class="shot-card">
-            <img src="assets/detect-ui.png" alt="GeckoAI detect workspace screenshot" />
-            <div class="shot-copy">
-              <strong>Detect Workspace</strong>
-              <p>Inspect product images with detection overlays, class summaries, and a focused review panel for fast pass-fail analysis.</p>
-            </div>
-          </article>
-          <article class="shot-card">
-            <img src="assets/train-ui.png" alt="GeckoAI training settings screenshot" />
-            <div class="shot-copy">
-              <strong>Training Setup</strong>
-              <p>Configure output paths, model weights, epochs, image size, and device settings inside a clean training workflow.</p>
-            </div>
-          </article>
+        <div class="carousel" data-carousel>
+          <button class="carousel-arrow prev" type="button" aria-label="Previous screenshot" data-carousel-prev>
+            &#8249;
+          </button>
+          <div class="carousel-viewport">
+            <article class="shot-card is-active" data-slide>
+              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/label-ui.png" data-lightbox-title="Label Workspace">
+                <img src="assets/label-ui.png" alt="GeckoAI label workspace screenshot" />
+                <span class="shot-zoom">Click to enlarge</span>
+                <span class="shot-tag top-left">Project toolbar</span>
+                <span class="shot-tag top-right">Export and training</span>
+                <span class="shot-tag mid-right">Class tools</span>
+                <span class="shot-tag bottom-right">Dataset navigation</span>
+              </button>
+              <div class="shot-copy">
+                <strong>Label Workspace</strong>
+                <p>Review labeled components, manage classes, auto-detect candidates, and move through datasets with a production-ready annotation workflow.</p>
+              </div>
+            </article>
+            <article class="shot-card" data-slide>
+              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/detect-ui.png" data-lightbox-title="Detect Workspace">
+                <img src="assets/detect-ui.png" alt="GeckoAI detect workspace screenshot" />
+                <span class="shot-zoom">Click to enlarge</span>
+                <span class="shot-tag top-left">Detection overlays</span>
+                <span class="shot-tag top-right">Mode controls</span>
+                <span class="shot-tag mid-right">Detected classes</span>
+                <span class="shot-tag bottom-right">Fast image review</span>
+              </button>
+              <div class="shot-copy">
+                <strong>Detect Workspace</strong>
+                <p>Inspect product images with detection overlays, class summaries, and a focused review panel for fast pass-fail analysis.</p>
+              </div>
+            </article>
+            <article class="shot-card" data-slide>
+              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/train-ui.png" data-lightbox-title="Training Setup">
+                <img src="assets/train-ui.png" alt="GeckoAI training settings screenshot" />
+                <span class="shot-zoom">Click to enlarge</span>
+                <span class="shot-tag top-right">Theme switch</span>
+                <span class="shot-tag mid-left">Output path</span>
+                <span class="shot-tag mid-right">Model and device</span>
+                <span class="shot-tag bottom-center">Guided training flow</span>
+              </button>
+              <div class="shot-copy">
+                <strong>Training Setup</strong>
+                <p>Configure output paths, model weights, epochs, image size, and device settings inside a clean step-by-step training workflow.</p>
+              </div>
+            </article>
+          </div>
+          <button class="carousel-arrow next" type="button" aria-label="Next screenshot" data-carousel-next>
+            &#8250;
+          </button>
+        </div>
+        <div class="carousel-dots" data-carousel-dots>
+          <button class="is-active" type="button" aria-label="Go to screenshot 1" data-carousel-dot></button>
+          <button type="button" aria-label="Go to screenshot 2" data-carousel-dot></button>
+          <button type="button" aria-label="Go to screenshot 3" data-carousel-dot></button>
         </div>
       </section>
 
@@ -317,6 +353,14 @@
       <p>GeckoAI Product Website</p>
       <p>Built for industrial AI inspection workflows</p>
     </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close image viewer" data-lightbox-close>&times;</button>
+    <div class="lightbox-dialog">
+      <img src="" alt="" id="lightboxImage" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
   </div>
 
   <script src="app.js"></script>
