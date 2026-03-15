@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeckoAI | 工業視覺標註與檢測平台</title>
+  <meta
+    name="description"
+    content="GeckoAI 是結合標註、訓練、檢測、Golden 比對、OCR 與報表輸出的工業 AI 視覺平台。"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#hero">
+        <span class="brand-mark">G</span>
+        <span class="brand-text">
+          <strong>GeckoAI</strong>
+          <small>Industrial Vision Platform</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="#platform">平台能力</a>
+        <a href="#workflow">工作流程</a>
+        <a href="#scenarios">應用場景</a>
+        <a href="#contact">聯絡方式</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/JamesChang666/GeckoAI" target="_blank" rel="noreferrer">
+        View GitHub
+      </a>
+    </header>
+
+    <main>
+      <section class="hero reveal" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Smart Labeling. Visual Inspection. Actionable Reports.</p>
+          <h1>把工業影像從資料蒐集，直接推進到可交付的 AI 檢測成果。</h1>
+          <p class="hero-lead">
+            GeckoAI 專為製造與品質檢測場景打造，將資料標註、YOLO 訓練、Golden Template 比對、
+            OCR Traceability 與管理報表整合成一個可部署的產品介紹級平台。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">預約產品介紹</a>
+            <a class="button button-secondary" href="#platform">查看功能亮點</a>
+          </div>
+          <ul class="hero-points">
+            <li>桌面 GUI + CLI 雙模式，兼顧現場操作與系統整合</li>
+            <li>支援一般框、旋轉 OBB、Golden 比對、OCR、報表輸出</li>
+            <li>適用於包裝檢查、咖啡豆分級、PCBA 檢測等多種場景</li>
+          </ul>
+        </div>
+
+        <div class="hero-stage">
+          <div class="signal-card glass">
+            <span class="signal-label">Unified Workflow</span>
+            <div class="signal-grid">
+              <div>
+                <strong>Label</strong>
+                <p>Bounding Box / OBB / Class 管理</p>
+              </div>
+              <div>
+                <strong>Train</strong>
+                <p>YOLO / YOLO-OBB / CPU-GPU Runtime</p>
+              </div>
+              <div>
+                <strong>Inspect</strong>
+                <p>Golden Compare / OCR / PASS-FAIL</p>
+              </div>
+              <div>
+                <strong>Report</strong>
+                <p>CSV / XLSX / HTML / PDF Dashboard</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-panel glass">
+            <div class="preview-header">
+              <span class="dot red"></span>
+              <span class="dot amber"></span>
+              <span class="dot green"></span>
+              <span class="preview-title">GeckoAI inspection snapshot</span>
+            </div>
+            <div class="preview-content">
+              <div class="preview-image">
+                <span class="scan-line"></span>
+                <div class="bbox one">label</div>
+                <div class="bbox two">seal</div>
+                <div class="bbox three">valve</div>
+                <div class="status-chip pass">PASS 98.6%</div>
+              </div>
+              <div class="preview-report">
+                <div class="report-row">
+                  <span>Golden match</span>
+                  <strong>Aligned</strong>
+                </div>
+                <div class="report-row">
+                  <span>OCR id</span>
+                  <strong>PCBA-2048</strong>
+                </div>
+                <div class="report-row">
+                  <span>Output</span>
+                  <strong>HTML / PDF / XLSX</strong>
+                </div>
+                <div class="report-bars">
+                  <span style="--bar: 92%"></span>
+                  <span style="--bar: 74%"></span>
+                  <span style="--bar: 85%"></span>
+                  <span style="--bar: 66%"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats reveal">
+        <article>
+          <strong>All-in-one</strong>
+          <p>標註、訓練、檢測、OCR、報表整合在同一套流程內</p>
+        </article>
+        <article>
+          <strong>Desktop + CLI</strong>
+          <p>現場操作人員與自動化系統都能使用同一產品</p>
+        </article>
+        <article>
+          <strong>Golden Inspection</strong>
+          <p>支援模板比對、背景切割與 Piece-level 缺陷定位</p>
+        </article>
+        <article>
+          <strong>Management Reports</strong>
+          <p>輸出可直接給 QA、主管與客戶審閱的視覺化成果</p>
+        </article>
+      </section>
+
+      <section class="section reveal" id="platform">
+        <div class="section-heading">
+          <p class="eyebrow">Platform Capabilities</p>
+          <h2>一套平台，串起資料製備到工業檢測決策。</h2>
+        </div>
+        <div class="card-grid">
+          <article class="feature-card">
+            <span class="card-index">01</span>
+            <h3>Label Workspace</h3>
+            <p>提供一般框與旋轉 OBB 標註、類別管理、Undo/Redo、多選編輯與模型輔助標註。</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">02</span>
+            <h3>Detect Workspace</h3>
+            <p>支援批次檢測、Golden Compare、背景切割、Fail Reason 與每張圖像的視覺證據輸出。</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">03</span>
+            <h3>Training Workflow</h3>
+            <p>支援 YOLO / YOLO-OBB 訓練、CPU/GPU Runtime 選擇、進度監控與封裝部署策略。</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">04</span>
+            <h3>Automation Ready CLI</h3>
+            <p>可整合 MES、排程器或產線腳本，支援 Watch Mode、JSON Summary 與 Exit Code 控制。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section workflow reveal" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">Workflow</p>
+          <h2>專為實際工廠與 QA 現場設計的產品節奏。</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-step">
+            <span>Step 1</span>
+            <h3>匯入影像與資料集</h3>
+            <p>支援圖片資料夾、YOLO Dataset、Golden Package 與相機擷取來源。</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 2</span>
+            <h3>標註與建立標準</h3>
+            <p>快速建立類別、調整 OBB、導出 Golden Package，形成可持續迭代的資料基礎。</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 3</span>
+            <h3>訓練與部署模型</h3>
+            <p>依資料格式自動對應 YOLO 或 YOLO-OBB，並保留 CPU/GPU 相容彈性。</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 4</span>
+            <h3>檢測、比對、輸出報表</h3>
+            <p>執行 Golden Compare、OCR Traceability 與 Dashboard Report，讓決策與追溯更清楚。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="scenarios">
+        <div class="section-heading">
+          <p class="eyebrow">Use Cases</p>
+          <h2>同一套產品，可落地在不同產業的視覺檢測任務。</h2>
+        </div>
+        <div class="scenario-grid">
+          <article class="scenario-card warm">
+            <h3>咖啡包裝檢查</h3>
+            <p>驗證包裝完整性、貼標位置、封口與閥件是否符合標準。</p>
+            <ul>
+              <li>Golden Compare 做版型一致性比對</li>
+              <li>PASS / FAIL 理由可直接進入報表</li>
+            </ul>
+          </article>
+          <article class="scenario-card earth">
+            <h3>咖啡豆分級</h3>
+            <p>針對碎豆、黑豆、蟲蛀與異物做分類計數，建立品質數據資產。</p>
+            <ul>
+              <li>模型檢測 + 類別統計</li>
+              <li>適合品保與採購決策輔助</li>
+            </ul>
+          </article>
+          <article class="scenario-card tech">
+            <h3>PCBA 缺陷檢測</h3>
+            <p>結合背景切割、Piece 檢測、Golden Compare 與 OCR，鎖定缺件與偏移問題。</p>
+            <ul>
+              <li>支援 board-level 與 piece-level 分析</li>
+              <li>可將 ID / Sub-ID 寫入追溯報表</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section outputs reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Deliverables</p>
+          <h2>輸出不只是一張圖，而是可以交付與審查的結果。</h2>
+        </div>
+        <div class="outputs-layout">
+          <div class="outputs-copy">
+            <p>
+              GeckoAI 將模型結果整理為工程與管理都看得懂的形式，讓現場、QA、主管與客戶能在同一份資料上對齊決策。
+            </p>
+            <div class="output-tags">
+              <span>YOLO Labels</span>
+              <span>Golden Package</span>
+              <span>Rendered Evidence</span>
+              <span>CSV</span>
+              <span>XLSX</span>
+              <span>HTML Dashboard</span>
+              <span>PDF Report</span>
+              <span>JSON Summary</span>
+            </div>
+          </div>
+          <div class="terminal-card glass">
+            <div class="terminal-head">CLI Example</div>
+            <pre><code>GeckoAI-CLI.exe detect ^
+  --model best.pt ^
+  --source C:\inspection\incoming ^
+  --output C:\inspection\results ^
+  --golden-dir C:\inspection\golden ^
+  --save-json summary.json ^
+  --fail-exit-code 10</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact reveal" id="contact">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>想把 GeckoAI 做成對外展示官網、提案頁，或產品銷售頁面，可以直接聯絡。</h2>
+            <p class="contact-note">
+              這個頁面已預留成產品官網方向，可進一步延伸成 GitHub Pages、品牌介紹站或商務提案 landing page。
+            </p>
+          </div>
+          <div class="contact-card">
+            <span class="contact-label">Product Contact</span>
+            <h3>James (Chi-Chun) Chang</h3>
+            <a href="mailto:james273899@gmail.com">james273899@gmail.com</a>
+            <a href="https://github.com/JamesChang666/GeckoAI" target="_blank" rel="noreferrer">
+              github.com/JamesChang666/GeckoAI
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>GeckoAI Product Website</p>
+      <p>James (Chi-Chun) Chang · james273899@gmail.com</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
