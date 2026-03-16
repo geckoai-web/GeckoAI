@@ -352,66 +352,68 @@
           </p>
         </div>
         <div class="report-demo-grid">
-          <article class="report-demo-card">
+          <article class="report-demo-card report-demo-card-wide">
             <div class="report-demo-head">
-              <span class="report-demo-type">CSV</span>
-              <strong>Inspection Result Export</strong>
+              <span class="report-demo-type">CSV / XLSX</span>
+              <strong>Inspection Table Export</strong>
             </div>
-            <button class="report-preview-button report-table-preview" type="button" data-lightbox-trigger data-lightbox-src="assets/report-preview-csv.png" data-lightbox-title="CSV Demo Preview">
-              <div class="report-table-grid report-table-header">
-                <span>Image</span>
-                <span>Result</span>
-                <span>Reason</span>
+            <div class="report-table-layout">
+              <button class="report-preview-button report-table-preview report-table-preview-wide" type="button" data-lightbox-trigger data-lightbox-src="assets/report-preview-csv.png" data-lightbox-title="Inspection Table Export Preview">
+                <div class="report-table-grid report-table-header report-six-col">
+                  <span>image_name</span>
+                  <span>result</span>
+                  <span>fail_reason</span>
+                  <span>ocr_id</span>
+                  <span>confidence</span>
+                  <span>inspection_time</span>
+                </div>
+                <div class="report-table-grid report-six-col">
+                  <span>IMG_001</span>
+                  <span>PASS</span>
+                  <span>None</span>
+                  <span>PACK-240316-001</span>
+                  <span>0.992</span>
+                  <span>2026/3/16 08:30</span>
+                </div>
+                <div class="report-table-grid report-six-col">
+                  <span>IMG_002</span>
+                  <span>FAIL</span>
+                  <span>Label Shift</span>
+                  <span>PACK-240316-002</span>
+                  <span>0.947</span>
+                  <span>2026/3/16 08:31</span>
+                </div>
+                <div class="report-table-grid report-six-col">
+                  <span>IMG_003</span>
+                  <span>PASS</span>
+                  <span>None</span>
+                  <span>PACK-240316-003</span>
+                  <span>0.988</span>
+                  <span>2026/3/16 08:31</span>
+                </div>
+                <div class="report-table-grid report-six-col">
+                  <span>IMG_004</span>
+                  <span>FAIL</span>
+                  <span>OCR Mismatch</span>
+                  <span>PACK-240316-004</span>
+                  <span>0.913</span>
+                  <span>2026/3/16 08:32</span>
+                </div>
+                <div class="report-table-grid report-six-col">
+                  <span>IMG_005</span>
+                  <span>PASS</span>
+                  <span>None</span>
+                  <span>PACK-240316-005</span>
+                  <span>0.995</span>
+                  <span>2026/3/16 08:33</span>
+                </div>
+                <span class="report-preview-zoom">Click to enlarge</span>
+              </button>
+              <div class="report-format-note">
+                <span class="report-custom-note">Available in XLSX and CSV</span>
+                <p>This preview uses the real export column structure with demo-only sample data, so the layout matches an actual GeckoAI report while keeping the content fictional.</p>
+                <p>Fields, ordering, calculated columns, and summary rows can be customized based on customer workflow and reporting requirements.</p>
               </div>
-              <div class="report-table-grid">
-                <span>IMG_001</span>
-                <span>PASS</span>
-                <span>Valve OK</span>
-              </div>
-              <div class="report-table-grid">
-                <span>IMG_002</span>
-                <span>FAIL</span>
-                <span>Label Shift</span>
-              </div>
-              <div class="report-table-grid">
-                <span>IMG_003</span>
-                <span>PASS</span>
-                <span>Seal OK</span>
-              </div>
-              <span class="report-preview-zoom">Click to enlarge</span>
-            </button>
-            <div class="report-demo-meta">
-              <p>Flat result file with simulated image names, pass-fail status, OCR IDs, and inspection timestamps.</p>
-              <span class="report-custom-note">Customizable on request</span>
-            </div>
-          </article>
-          <article class="report-demo-card">
-            <div class="report-demo-head">
-              <span class="report-demo-type">XLSX</span>
-              <strong>QA Summary Workbook</strong>
-            </div>
-            <button class="report-preview-button report-table-preview" type="button" data-lightbox-trigger data-lightbox-src="assets/report-preview-xlsx.png" data-lightbox-title="XLSX Demo Preview">
-              <div class="report-table-grid report-table-header report-two-col">
-                <span>Metric</span>
-                <span>Value</span>
-              </div>
-              <div class="report-table-grid report-two-col">
-                <span>Batch ID</span>
-                <span>DEMO-240316-A</span>
-              </div>
-              <div class="report-table-grid report-two-col">
-                <span>Pass Rate</span>
-                <span>96.1%</span>
-              </div>
-              <div class="report-table-grid report-two-col">
-                <span>Top Fail Type</span>
-                <span>Missing Label</span>
-              </div>
-              <span class="report-preview-zoom">Click to enlarge</span>
-            </button>
-            <div class="report-demo-meta">
-              <p>Mock workbook with sample batch ID, inspection totals, pass rate, and top issue summary for QA review.</p>
-              <span class="report-custom-note">Customizable on request</span>
             </div>
           </article>
           <article class="report-demo-card">
