@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Detection Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg:      #0d0f14;
+  --surface: #141720;
+  --card:    #1c2030;
+  --border:  #252a3a;
+  --text:    #e8ecf4;
+  --muted:   #7a849a;
+  --pass:    #22c55e;
+  --fail:    #ef4444;
+  --blue:    #3b82f6;
+  --amber:   #f59e0b;
+  --purple:  #8b5cf6;
+  --dim:     #4a5266;
+}
+* { box-sizing:border-box; margin:0; padding:0 }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh }
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+}
+    .header-inner {
+      max-width:100%; margin:0 auto; padding:20px 24px;
+      display:flex; align-items:center; gap:20px;
+    }
+.header-icon {
+  width:48px; height:48px; border-radius:12px;
+  background:linear-gradient(135deg,#3b82f6,#8b5cf6);
+  display:flex; align-items:center; justify-content:center;
+  font-size:13px; font-weight:700; font-family:'IBM Plex Mono',monospace; letter-spacing:.08em; flex-shrink:0;
+}
+.header-text h1 { font-size:20px; font-weight:700; letter-spacing:-0.3px }
+.header-text p  { font-size:12px; color:var(--muted); margin-top:3px; font-family:'IBM Plex Mono',monospace }
+.mode-badge {
+  margin-left:auto; padding:6px 14px; border-radius:20px; font-size:11px;
+  font-weight:600; font-family:'IBM Plex Mono',monospace; letter-spacing:0.5px;
+  background: #1a3a1a; color:#22c55e; border:1px solid #22c55e40;
+}
+
+    .container { max-width:100%; margin:0 auto; padding:24px 24px }
+.section-label {
+  font-family:'IBM Plex Mono',monospace; font-size:10px; font-weight:600; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--dim); margin:4px 0 12px 0;
+  padding-bottom:8px; border-bottom:1px solid var(--border);
+}
+
+/* KPI */
+	.kpi-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:14px; margin-bottom:24px }
+.kpi { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:18px 14px; text-align:center; position:relative; overflow:hidden }
+.kpi::before { content:''; position:absolute; top:0; left:0; right:0; height:3px }
+.kpi.red::before   { background:#ef4444 }
+.kpi.green::before { background:#22c55e }
+.kpi.blue::before  { background:#3b82f6 }
+.kpi.purple::before { background:#8b5cf6 }
+.kpi.yellow::before { background:#f59e0b }
+.kpi .val { font-size:28px; font-weight:700; font-family:'IBM Plex Mono',monospace }
+.kpi.red .val    { color:#ef4444 }
+.kpi.green .val  { color:#22c55e }
+.kpi.blue .val   { color:#3b82f6 }
+.kpi.purple .val { color:#8b5cf6 }
+.kpi.yellow .val { color:#f59e0b }
+.kpi .lbl { font-size:10px; color:var(--muted); text-transform:uppercase; letter-spacing:1px; margin-top:4px; font-weight:500 }
+
+/* Cards */
+	.row2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(420px,1fr)); gap:18px; margin-bottom:18px }
+	.row3 { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px; margin-bottom:18px }
+	.card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:18px }
+.card-title { font-size:13px; font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:8px }
+.card-title small { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--dim); font-weight:400 }
+.cmp-card { border:1px solid #243048; border-radius:10px; padding:12px; margin-bottom:12px; background:#141d30 }
+.cmp-head { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px }
+.cmp-name { font-size:12px; font-family:'IBM Plex Mono',monospace; color:#cbd5e1; word-break:break-all }
+.cmp-status { padding:3px 8px; border-radius:999px; font-size:10px; font-weight:700; letter-spacing:.5px }
+.status-pass { color:#22c55e; border:1px solid #22c55e55; background:#052e16 }
+.status-fail { color:#ef4444; border:1px solid #ef444455; background:#450a0a }
+.status-na { color:#94a3b8; border:1px solid #334155; background:#0f172a }
+.cmp-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px }
+.cmp-pane { border:1px solid #2a364f; border-radius:8px; background:#0f172a; padding:8px }
+.cmp-title { font-size:10px; color:#94a3b8; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px }
+.cmp-pane img { width:100%; border-radius:6px; border:1px solid #1e293b; display:block }
+	.cmp-empty { color:#64748b; font-size:12px; padding:16px 8px }
+	.cmp-detail { margin-top:8px; color:#94a3b8; font-size:11px; line-height:1.5 }
+	.cmp-reason { margin-bottom:8px; color:#f59e0b; font-size:11px; line-height:1.4 }
+
+/* Tables */
+.tbl-wrap { overflow-x:auto }
+table { width:100%; border-collapse:collapse; font-size:12px }
+th { background:#0d1526; color:var(--muted); font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:1px; padding:9px 12px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap }
+td { padding:8px 12px; border-bottom:1px solid #1a2030; color:#cbd5e1 }
+tr:last-child td { border-bottom:none }
+tr:hover td { background:#1f2d44 }
+td.num { font-family:'IBM Plex Mono',monospace; font-size:11px; color:#94a3b8 }
+
+/* Badges */
+	.badge { display:inline-block; padding:3px 8px; border-radius:6px; font-size:10px; font-weight:600; font-family:'IBM Plex Mono',monospace; margin:1px }
+	.badge.pass { background:#052e16; color:#22c55e; border:1px solid #22c55e30 }
+	.badge.fail { background:#450a0a; color:#ef4444; border:1px solid #ef444430 }
+	.badge-row { margin-bottom:8px }
+	.cat-tag { display:inline-block; padding:3px 9px; border-radius:6px; font-size:10px; font-weight:600; background:#162038; color:#60a5fa; border:1px solid #3b82f630 }
+	.dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; vertical-align:middle }
+	.pct { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted) }
+	.bar-bg { height:4px; background:var(--border); border-radius:2px; margin-top:4px }
+	.bar-fg { height:100%; border-radius:2px }
+	.banner {
+	  border-radius:8px; padding:14px 18px; margin-bottom:18px;
+	  display:flex; align-items:flex-start; gap:12px;
+	  border-left-width:4px; border-left-style:solid; border:1px solid;
+	}
+	.banner.amber { background:rgba(255,184,0,.08); border-color:rgba(255,184,0,.35); border-left-color:#ffb800 }
+	.banner-icon { font-size:18px; flex-shrink:0; margin-top:1px }
+	.banner-body h3 { font-size:13px; font-weight:700; margin-bottom:5px; color:#ffb800 }
+	.banner-body p { font-size:12px; color:var(--muted); line-height:1.65 }
+	.hm-wrap { margin-bottom:8px }
+	.hm-grid { display:flex; flex-wrap:wrap; gap:4px }
+	.pc {
+	  width:28px; height:28px; border-radius:4px; display:flex; align-items:center; justify-content:center;
+	  font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600; cursor:default; transition:transform .15s;
+	  flex-shrink:0;
+	}
+	.pc:hover { transform:scale(1.22); z-index:10; position:relative }
+	.pc.pass { background:rgba(0,214,143,.45); color:rgba(0,0,0,.75) }
+	.pc.fail { background:rgba(255,59,48,.75); color:#fff }
+	.pc.nd-pass { background:rgba(74,158,255,.35); color:#fff }
+	.legend-row { display:flex; gap:16px; flex-wrap:wrap }
+	.li { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--muted) }
+	.ld { width:10px; height:10px; border-radius:2px; flex-shrink:0 }
+	.chart-canvas { width:100% !important; height:clamp(220px, 36vh, 420px) !important; display:block }
+
+/* Chart.js defaults */
+	@media(max-width:1200px) {
+	  .container,.header-inner { padding:16px }
+	  .row2 { grid-template-columns:1fr }
+	}
+	@media(max-width:768px) {
+	  .row2,.row3 { grid-template-columns:1fr }
+	  .cmp-grid { grid-template-columns:1fr }
+	  .chart-canvas { height:clamp(200px, 42vh, 320px) !important }
+	  .kpi .val { font-size:22px }
+	}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="header-icon">gekoai</div>
+    <div class="header-text">
+      <h1>Component Detection Dashboard</h1>
+      <p>2026-03-15 00:36:27 &nbsp;|&nbsp; 89 images &nbsp;|&nbsp; Total duration: 23s &nbsp;|&nbsp; IoU threshold: 0.50</p>
+    </div>
+    <div class="mode-badge">GOLDEN COMPARISON</div>
+  </div>
+</header>
+<div class="container">
+
+  <!-- KPIs -->
+  <div class="section-label">Overview</div>
+  <div class="kpi-row">
+    <div class="kpi blue"><div class="val">89</div><div class="lbl">Total Images</div></div>
+    <div class="kpi green"><div class="val">4</div><div class="lbl">PASS</div></div>
+    <div class="kpi red"><div class="val">85</div><div class="lbl">FAIL</div></div>
+    <div class="kpi green"><div class="val">4.5%</div><div class="lbl">Pass Rate</div></div>
+    <div class="kpi blue"><div class="val">0.325</div><div class="lbl">Avg IoU</div></div>
+    <div class="kpi blue"><div class="val">23s</div><div class="lbl">Total Duration</div></div>
+    <div class="kpi purple"><div class="val">6</div><div class="lbl">Classes</div></div>
+    <div class="kpi yellow"><div class="val">426</div><div class="lbl">Components</div></div>
+    <div class="kpi blue"><div class="val">4.8</div><div class="lbl">Avg/Image</div></div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi green"><div class="val">1</div><div class="lbl">Boards (Before Cut)</div></div><div class="kpi green"><div class="val">89</div><div class="lbl">Pieces (After Cut)</div></div><div class="kpi red"><div class="val">85</div><div class="lbl">Piece NG</div></div><div class="kpi blue"><div class="val">4</div><div class="lbl">Piece OK</div></div><div class="kpi yellow"><div class="val">95.5%</div><div class="lbl">Piece NG Rate</div></div>
+  </div>
+  <div class="banner amber"><div class="banner-icon">⚠</div><div class="banner-body"><h3>Localized Failure: 85 FAIL pieces (95.5%)</h3><p>Fail positions: p001, p002, p003, p004, p005, p006, p008, p009, p010, p011, p015, p016, p017, p018, p019, p020, p021, p022, p023, p024, p025, p026, p027, p028, p029, p030, p031, p032, p033, p034, p035, p036, p037, p038, p039, p040, p041, p042, p043, p044, p045, p046, p047, p048, p049, p050, p051, p052, p053, p054, p055, p056, p057, p058, p059, p060, p061, p062, p063, p064, p065, p066, p067, p068, p069, p070, p071, p072, p073, p074, p075, p076, p077, p078, p079, p080, p081, p082, p083, p084, p085, p086, p087, p088, p089. Fail positions show repeated hotspots across boards. Check recurring positions and feeder/supply stability first.</p></div></div>
+  <div class="section-label">Piece Heatmap</div><div class="card"><div class="legend-row"><div class="li"><div class="ld" style="background:rgba(0,214,143,.45)"></div>PASS</div><div class="li"><div class="ld" style="background:rgba(255,59,48,.75)"></div>FAIL</div><div class="li"><div class="ld" style="background:rgba(74,158,255,.35)"></div>No Data</div></div></div><div class="row2"><div class="card"><div class="card-title">WhatsApp Image 2026-03-15 at 00.01.53 <small>89 pieces</small></div><div class="badge-row"><span class="badge pass">PASS 4</span> <span class="badge fail">FAIL 85</span></div><div class="hm-wrap"><div class="hm-grid"><div class="pc fail" title="p001 - FAIL">p001</div><div class="pc fail" title="p002 - FAIL">p002</div><div class="pc fail" title="p003 - FAIL">p003</div><div class="pc fail" title="p004 - FAIL">p004</div><div class="pc fail" title="p005 - FAIL">p005</div><div class="pc fail" title="p006 - FAIL">p006</div><div class="pc pass" title="p007 - PASS">p007</div><div class="pc fail" title="p008 - FAIL">p008</div><div class="pc fail" title="p009 - FAIL">p009</div><div class="pc fail" title="p010 - FAIL">p010</div><div class="pc fail" title="p011 - FAIL">p011</div><div class="pc pass" title="p012 - PASS">p012</div><div class="pc pass" title="p013 - PASS">p013</div><div class="pc pass" title="p014 - PASS">p014</div><div class="pc fail" title="p015 - FAIL">p015</div><div class="pc fail" title="p016 - FAIL">p016</div><div class="pc fail" title="p017 - FAIL">p017</div><div class="pc fail" title="p018 - FAIL">p018</div><div class="pc fail" title="p019 - FAIL">p019</div><div class="pc fail" title="p020 - FAIL">p020</div><div class="pc fail" title="p021 - FAIL">p021</div><div class="pc fail" title="p022 - FAIL">p022</div><div class="pc fail" title="p023 - FAIL">p023</div><div class="pc fail" title="p024 - FAIL">p024</div><div class="pc fail" title="p025 - FAIL">p025</div><div class="pc fail" title="p026 - FAIL">p026</div><div class="pc fail" title="p027 - FAIL">p027</div><div class="pc fail" title="p028 - FAIL">p028</div><div class="pc fail" title="p029 - FAIL">p029</div><div class="pc fail" title="p030 - FAIL">p030</div><div class="pc fail" title="p031 - FAIL">p031</div><div class="pc fail" title="p032 - FAIL">p032</div><div class="pc fail" title="p033 - FAIL">p033</div><div class="pc fail" title="p034 - FAIL">p034</div><div class="pc fail" title="p035 - FAIL">p035</div><div class="pc fail" title="p036 - FAIL">p036</div><div class="pc fail" title="p037 - FAIL">p037</div><div class="pc fail" title="p038 - FAIL">p038</div><div class="pc fail" title="p039 - FAIL">p039</div><div class="pc fail" title="p040 - FAIL">p040</div><div class="pc fail" title="p041 - FAIL">p041</div><div class="pc fail" title="p042 - FAIL">p042</div><div class="pc fail" title="p043 - FAIL">p043</div><div class="pc fail" title="p044 - FAIL">p044</div><div class="pc fail" title="p045 - FAIL">p045</div><div class="pc fail" title="p046 - FAIL">p046</div><div class="pc fail" title="p047 - FAIL">p047</div><div class="pc fail" title="p048 - FAIL">p048</div><div class="pc fail" title="p049 - FAIL">p049</div><div class="pc fail" title="p050 - FAIL">p050</div><div class="pc fail" title="p051 - FAIL">p051</div><div class="pc fail" title="p052 - FAIL">p052</div><div class="pc fail" title="p053 - FAIL">p053</div><div class="pc fail" title="p054 - FAIL">p054</div><div class="pc fail" title="p055 - FAIL">p055</div><div class="pc fail" title="p056 - FAIL">p056</div><div class="pc fail" title="p057 - FAIL">p057</div><div class="pc fail" title="p058 - FAIL">p058</div><div class="pc fail" title="p059 - FAIL">p059</div><div class="pc fail" title="p060 - FAIL">p060</div><div class="pc fail" title="p061 - FAIL">p061</div><div class="pc fail" title="p062 - FAIL">p062</div><div class="pc fail" title="p063 - FAIL">p063</div><div class="pc fail" title="p064 - FAIL">p064</div><div class="pc fail" title="p065 - FAIL">p065</div><div class="pc fail" title="p066 - FAIL">p066</div><div class="pc fail" title="p067 - FAIL">p067</div><div class="pc fail" title="p068 - FAIL">p068</div><div class="pc fail" title="p069 - FAIL">p069</div><div class="pc fail" title="p070 - FAIL">p070</div><div class="pc fail" title="p071 - FAIL">p071</div><div class="pc fail" title="p072 - FAIL">p072</div><div class="pc fail" title="p073 - FAIL">p073</div><div class="pc fail" title="p074 - FAIL">p074</div><div class="pc fail" title="p075 - FAIL">p075</div><div class="pc fail" title="p076 - FAIL">p076</div><div class="pc fail" title="p077 - FAIL">p077</div><div class="pc fail" title="p078 - FAIL">p078</div><div class="pc fail" title="p079 - FAIL">p079</div><div class="pc fail" title="p080 - FAIL">p080</div><div class="pc fail" title="p081 - FAIL">p081</div><div class="pc fail" title="p082 - FAIL">p082</div><div class="pc fail" title="p083 - FAIL">p083</div><div class="pc fail" title="p084 - FAIL">p084</div><div class="pc fail" title="p085 - FAIL">p085</div><div class="pc fail" title="p086 - FAIL">p086</div><div class="pc fail" title="p087 - FAIL">p087</div><div class="pc fail" title="p088 - FAIL">p088</div><div class="pc fail" title="p089 - FAIL">p089</div></div></div></div></div>
+
+  <!-- Charts row 1 -->
+  <div class="section-label">Pass/Fail Overview</div>
+  <div class="row2">
+    <div class="card"><div class="card-title">Components by Class (PASS/FAIL)</div><canvas id="classBar" class="chart-canvas"></canvas></div>
+    <div class="card"><div class="card-title">Images by ID (PASS/FAIL)</div><canvas id="catPie" class="chart-canvas"></canvas></div>
+    
+  </div>
+
+  <!-- Charts row 2 -->
+  <div class="section-label">Distribution</div>
+  <div class="row2">
+    <div class="card"><div class="card-title">Components per ID</div><canvas id="catComp" class="chart-canvas"></canvas></div>
+    
+    <div class="card">
+      <div class="card-title">IoU Score Distribution</div>
+      <canvas id="iouHist" class="chart-canvas"></canvas>
+    </div>
+  </div>
+
+  <!-- Class breakdown table -->
+  <div class="section-label">Class Details</div>
+  <div class="card">
+    <div class="card-title">Component Class Breakdown</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Class</th><th>Total</th><th>Images</th><th>Avg/Image</th><th>Share</th></tr></thead>
+        <tbody><tr><td><span class="dot" style="background:#3b82f6"></span>a</td><td class="num">117</td><td class="num">61</td><td class="num">1.92</td><td><span class="pct">27.5%</span><div class="bar-bg"><div class="bar-fg" style="width:100%;background:#3b82f680"></div></div></td></tr>
+<tr><td><span class="dot" style="background:#06b6d4"></span>e</td><td class="num">105</td><td class="num">62</td><td class="num">1.69</td><td><span class="pct">24.6%</span><div class="bar-bg"><div class="bar-fg" style="width:90%;background:#06b6d480"></div></div></td></tr>
+<tr><td><span class="dot" style="background:#8b5cf6"></span>c</td><td class="num">82</td><td class="num">82</td><td class="num">1.0</td><td><span class="pct">19.2%</span><div class="bar-bg"><div class="bar-fg" style="width:70%;background:#8b5cf680"></div></div></td></tr>
+<tr><td><span class="dot" style="background:#ec4899"></span>d</td><td class="num">55</td><td class="num">55</td><td class="num">1.0</td><td><span class="pct">12.9%</span><div class="bar-bg"><div class="bar-fg" style="width:47%;background:#ec489980"></div></div></td></tr>
+<tr><td><span class="dot" style="background:#f97316"></span>b</td><td class="num">37</td><td class="num">35</td><td class="num">1.06</td><td><span class="pct">8.7%</span><div class="bar-bg"><div class="bar-fg" style="width:32%;background:#f9731680"></div></div></td></tr>
+<tr><td><span class="dot" style="background:#10b981"></span>id</td><td class="num">30</td><td class="num">30</td><td class="num">1.0</td><td><span class="pct">7.0%</span><div class="bar-bg"><div class="bar-fg" style="width:26%;background:#10b98180"></div></div></td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ID table -->
+  <div class="section-label">ID Details</div>
+  <div class="card">
+    <div class="card-title">ID Summary</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>ID</th><th>Images</th><th>Components</th><th>Avg/Image</th><th>Avg IoU</th><th>Results</th></tr></thead>
+        <tbody><tr><td><span class="cat-tag">WhatsApp Image 2026-03-15 at 00.01.53</span></td><td class="num">89</td><td class="num">426</td><td class="num">4.8</td><td class="num">0.325</td><td><span class="badge pass">4 PASS</span> <span class="badge fail">85 FAIL</span></td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Part-Level NG Rate</div>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Part</th><th>Total Qty</th><th>NG Qty</th><th>NG %</th></tr></thead>
+        <tbody><tr><td>a</td><td class='num'>117</td><td class='num'>108</td><td class='num'>92.3%</td></tr>
+<tr><td>e</td><td class='num'>105</td><td class='num'>97</td><td class='num'>92.4%</td></tr>
+<tr><td>c</td><td class='num'>82</td><td class='num'>78</td><td class='num'>95.1%</td></tr>
+<tr><td>d</td><td class='num'>55</td><td class='num'>51</td><td class='num'>92.7%</td></tr>
+<tr><td>b</td><td class='num'>37</td><td class='num'>33</td><td class='num'>89.2%</td></tr>
+<tr><td>id</td><td class='num'>30</td><td class='num'>29</td><td class='num'>96.7%</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<script>
+const P  = ["#3b82f6","#06b6d4","#8b5cf6","#ec4899","#f97316","#10b981","#f59e0b","#60a5fa","#ef4444","#6366f1","#22c55e","#84cc16"];
+const al = (cols, a) => cols.map(c => c + (a||'99'));
+const g  = {x:{ticks:{color:"#64748b",font:{size:10}},grid:{color:"#1a2540"}},y:{ticks:{color:"#64748b",font:{size:10}},grid:{color:"#243048"}}};
+const gPct = {x:{stacked:true,ticks:{color:"#64748b",font:{size:10}},grid:{color:"#1a2540"}},y:{stacked:true,min:0,max:100,ticks:{color:"#64748b",font:{size:10},callback:(v)=>v+"%"},grid:{color:"#243048"}}};
+const lg = {labels:{color:"#94a3b8",font:{size:11}}};
+
+const clsL = ["a", "e", "c", "d", "b", "id"], clsT = [117, 105, 82, 55, 37, 30], clsI = [61, 62, 82, 55, 35, 30];
+const catL = ["WhatsApp Image 2026-03-15 at 00.01.53"], catC = [89], catM = [426];
+const catP = [4], catF = [85];
+const clsP = [9, 8, 4, 4, 4, 1], clsF = [108, 97, 78, 51, 33, 29];
+const toPctPair = (passArr, failArr) => {
+  const p = [], f = [];
+  for (let i = 0; i < Math.max(passArr.length, failArr.length); i++) {
+    const pv = Number(passArr[i] || 0), fv = Number(failArr[i] || 0);
+    const t = pv + fv;
+    p.push(t > 0 ? +(pv * 100 / t).toFixed(2) : 0);
+    f.push(t > 0 ? +(fv * 100 / t).toFixed(2) : 0);
+  }
+  return {pass:p, fail:f};
+};
+const pfClass = toPctPair(clsP, clsF);
+const pfId = toPctPair(catP, catF);
+const ttPct = (rawP, rawF) => ({
+  callbacks: {
+    label: (ctx) => {
+      const i = ctx.dataIndex;
+      const isPass = String(ctx.dataset.label || '').toUpperCase() === 'PASS';
+      const raw = isPass ? Number(rawP[i] || 0) : Number(rawF[i] || 0);
+      const pct = Number(ctx.parsed.y || 0);
+      return `${ctx.dataset.label}: ${raw} (${pct.toFixed(2)}%)`;
+    }
+  }
+});
+
+new Chart(document.getElementById("classBar"),{
+  type:"bar",
+  data:{labels:clsL,datasets:[{label:"PASS",data:pfClass.pass,backgroundColor:"#22c55e66",borderColor:"#22c55e",borderWidth:1,borderRadius:4,categoryPercentage:0.9,barPercentage:0.95},{label:"FAIL",data:pfClass.fail,backgroundColor:"#ef444466",borderColor:"#ef4444",borderWidth:1,borderRadius:4,categoryPercentage:0.9,barPercentage:0.95}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:lg, tooltip: ttPct(clsP, clsF), },scales:gPct}
+});
+
+new Chart(document.getElementById("catPie"),{
+  type:"bar",
+  data:{labels:catL,datasets:[{label:"PASS",data:pfId.pass,backgroundColor:"#22c55e66",borderColor:"#22c55e",borderWidth:1,borderRadius:3,categoryPercentage:0.9,barPercentage:0.95},{label:"FAIL",data:pfId.fail,backgroundColor:"#ef444466",borderColor:"#ef4444",borderWidth:1,borderRadius:3,categoryPercentage:0.9,barPercentage:0.95}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:lg  ,tooltip: ttPct(catP, catF) } ,scales:gPct}
+});
+
+new Chart(document.getElementById("catComp"),{
+  type:"bar",
+  data:{labels:catL,datasets:[{label:"Components",data:catM,backgroundColor:al(P.slice(0,catL.length),'aa'),borderColor:P,borderWidth:1,borderRadius:4}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:g}
+});
+
+new Chart(document.getElementById("iouHist"),{type:"bar",data:{labels:["0.0-0.1", "0.1-0.2", "0.2-0.3", "0.3-0.4", "0.4-0.5", "0.5-0.6", "0.6-0.7", "0.7-0.8", "0.8-0.9", "0.9-1.0"],datasets:[{label:"Images",data:[11, 10, 24, 27, 5, 1, 2, 3, 5, 1],backgroundColor:"#3b82f666",borderColor:"#3b82f6",borderWidth:1,borderRadius:3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:g}});
+
+
+</script>
+</body>
+</html>

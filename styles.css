@@ -727,6 +727,28 @@ main {
   color: var(--muted);
   line-height: 1.8;
 }
+.report-demo-copy {
+  display: grid;
+  gap: 12px;
+}
+.report-demo-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 195, 255, 0.24);
+  background: rgba(139, 195, 255, 0.08);
+  color: #e8f4ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.report-demo-link:hover {
+  background: rgba(139, 195, 255, 0.14);
+  border-color: rgba(139, 195, 255, 0.34);
+}
 .report-custom-note {
   display: inline-flex;
   align-items: center;
