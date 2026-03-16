@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeckoAI Demo Dashboard</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --panel: #0f1b2d;
+      --line: rgba(157, 201, 255, 0.18);
+      --text: #f6f8fc;
+      --muted: #9db0c7;
+      --accent: #6ae3c3;
+      --accent-2: #8bc3ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #06101c, #08111f 40%, #0b1422);
+    }
+    .page {
+      width: min(calc(100% - 32px), 1100px);
+      margin: 32px auto;
+    }
+    .hero, .card {
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: var(--panel);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+    }
+    .hero {
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 10px 0 8px;
+      font-size: 36px;
+    }
+    p { color: var(--muted); line-height: 1.7; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .card { padding: 22px; }
+    .metric {
+      font-size: 30px;
+      font-weight: 700;
+      margin: 10px 0 6px;
+    }
+    .bars {
+      display: flex;
+      gap: 12px;
+      align-items: end;
+      height: 180px;
+      margin-top: 12px;
+    }
+    .bars span {
+      flex: 1 1 0;
+      border-radius: 16px 16px 8px 8px;
+      background: linear-gradient(180deg, var(--accent-2), var(--accent));
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      color: var(--text);
+    }
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    th { color: var(--accent-2); font-size: 13px; }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="eyebrow">Demo Dashboard</div>
+      <h1>GeckoAI Inspection Summary</h1>
+      <p>This HTML dashboard uses fictional sample values for presentation only. No real production data is included.</p>
+    </section>
+    <section class="grid">
+      <article class="card">
+        <div class="eyebrow">Pass Rate</div>
+        <div class="metric">96.1%</div>
+        <p>123 passed out of 128 inspected items.</p>
+      </article>
+      <article class="card">
+        <div class="eyebrow">Failed Items</div>
+        <div class="metric">5</div>
+        <p>Main reasons: label shift, OCR mismatch, and missing mark.</p>
+      </article>
+      <article class="card">
+        <div class="eyebrow">Traceability</div>
+        <div class="metric">100%</div>
+        <p>All sample IDs were exported in the mock dataset.</p>
+      </article>
+      <article class="card">
+        <div class="eyebrow">Top Issue</div>
+        <div class="metric">Label Shift</div>
+        <p>Most frequent simulated issue in this example batch.</p>
+      </article>
+    </section>
+    <section class="card" style="margin-top:20px;">
+      <div class="eyebrow">Trend View</div>
+      <div class="bars">
+        <span style="height: 86%;"></span>
+        <span style="height: 52%;"></span>
+        <span style="height: 74%;"></span>
+        <span style="height: 36%;"></span>
+        <span style="height: 64%;"></span>
+      </div>
+    </section>
+    <section class="card" style="margin-top:20px;">
+      <div class="eyebrow">Sample Batch Details</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Result</th>
+            <th>Reason</th>
+            <th>OCR ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>IMG_001</td><td>PASS</td><td>None</td><td>PACK-240316-001</td></tr>
+          <tr><td>IMG_002</td><td>FAIL</td><td>Label Shift</td><td>PACK-240316-002</td></tr>
+          <tr><td>IMG_003</td><td>PASS</td><td>None</td><td>PACK-240316-003</td></tr>
+          <tr><td>IMG_004</td><td>FAIL</td><td>OCR Mismatch</td><td>PACK-240316-004</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

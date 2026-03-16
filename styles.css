@@ -642,6 +642,25 @@ main {
 .report-demo-body {
   padding: 18px 20px 20px;
 }
+.report-demo-actions {
+  padding: 0 20px 20px;
+}
+.report-demo-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(139, 195, 255, 0.24);
+  background: rgba(139, 195, 255, 0.08);
+  color: #e9f4ff;
+  font-weight: 700;
+  transition: transform 180ms ease, background 180ms ease;
+}
+.report-demo-actions a:hover {
+  transform: translateY(-2px);
+  background: rgba(139, 195, 255, 0.16);
+}
 .report-table {
   display: grid;
   gap: 10px;
