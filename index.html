@@ -193,6 +193,32 @@
                 <p>Configure output paths, model weights, epochs, image size, and device settings inside a clean step-by-step training workflow.</p>
               </div>
             </article>
+            <article class="shot-card" data-slide>
+              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="demo-reports/demobeforecut.jpeg" data-lightbox-title="Background Cut Result">
+                <img src="demo-reports/demobeforecut.jpeg" alt="GeckoAI background cut source image" />
+                <span class="shot-zoom">Click to enlarge</span>
+                <span class="shot-tag top-left">Background removed</span>
+                <span class="shot-tag top-right">Golden board output</span>
+                <span class="shot-tag bottom-center">Ready for comparison workflow</span>
+              </button>
+              <div class="shot-copy">
+                <strong>Background Cut</strong>
+                <p>Extract the product region from a noisy image background so downstream golden comparison and defect inspection stay focused on the true board area.</p>
+              </div>
+            </article>
+            <article class="shot-card" data-slide>
+              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/template-cut-piece.png" data-lightbox-title="Template Cut Result">
+                <img src="assets/template-cut-piece.png" alt="GeckoAI template cut piece result" />
+                <span class="shot-zoom">Click to enlarge</span>
+                <span class="shot-tag top-left">Template piece</span>
+                <span class="shot-tag top-right">Golden reference crop</span>
+                <span class="shot-tag bottom-center">Used for piece-level matching</span>
+              </button>
+              <div class="shot-copy">
+                <strong>Template Cut</strong>
+                <p>Generate reusable golden-template pieces for component-level matching, alignment checks, and localized inspection logic in repeatable QA flows.</p>
+              </div>
+            </article>
           </div>
           <button class="carousel-arrow next" type="button" aria-label="Next screenshot" data-carousel-next>
             &#8250;
@@ -202,6 +228,8 @@
           <button class="is-active" type="button" aria-label="Go to screenshot 1" data-carousel-dot></button>
           <button type="button" aria-label="Go to screenshot 2" data-carousel-dot></button>
           <button type="button" aria-label="Go to screenshot 3" data-carousel-dot></button>
+          <button type="button" aria-label="Go to screenshot 4" data-carousel-dot></button>
+          <button type="button" aria-label="Go to screenshot 5" data-carousel-dot></button>
         </div>
       </section>
 
@@ -358,7 +386,7 @@
               <strong>Inspection Table Export</strong>
             </div>
             <div class="report-table-layout">
-              <button class="report-preview-button report-table-preview report-table-preview-wide" type="button" data-lightbox-trigger data-lightbox-src="assets/report-preview-csv.png" data-lightbox-title="Inspection Table Export Preview">
+              <div class="report-table-preview report-table-preview-wide report-table-preview-static">
                 <div class="report-table-grid report-table-header report-six-col">
                   <span>image_name</span>
                   <span>result</span>
@@ -407,8 +435,7 @@
                   <span>0.995</span>
                   <span>2026/3/16 08:33</span>
                 </div>
-                <span class="report-preview-zoom">Click to enlarge</span>
-              </button>
+              </div>
               <div class="report-format-note">
                 <span class="report-custom-note">Available in XLSX and CSV</span>
                 <p>This preview uses the real export column structure with demo-only sample data, so the layout matches an actual GeckoAI report while keeping the content fictional.</p>
@@ -416,34 +443,20 @@
               </div>
             </div>
           </article>
-          <article class="report-demo-card">
+          <article class="report-demo-card report-demo-card-wide">
             <div class="report-demo-head">
               <span class="report-demo-type">HTML</span>
               <strong>Dashboard Snapshot</strong>
             </div>
-            <button class="report-preview-button report-image-preview" type="button" data-lightbox-trigger data-lightbox-src="assets/report-preview-html.png" data-lightbox-title="HTML Demo Preview">
-              <img src="assets/report-preview-html.png" alt="HTML demo file preview" />
+            <button class="report-preview-button report-image-preview report-image-preview-contain" type="button" data-lightbox-trigger data-lightbox-src="demo-reports/html_screenshot.png" data-lightbox-title="HTML Demo Preview">
+              <img src="demo-reports/html_screenshot.png" alt="HTML demo file preview" />
               <span class="report-preview-zoom">Click to enlarge</span>
             </button>
             <div class="report-demo-meta">
               <div class="report-demo-copy">
-                <p>Live GeckoAI dashboard demo based on a real report structure, with presentation-safe sample content and the fail-only comparison image removed.</p>
+                <p>Live GeckoAI dashboard demo based on a real report structure, with presentation-safe sample content and the fail-only comparison image removed. A PDF version is also available for reporting and presentation needs.</p>
                 <a class="report-demo-link" href="demo-reports/detect_results_20260315_003625_dashboard.html" target="_blank" rel="noreferrer">Open live HTML demo</a>
               </div>
-              <span class="report-custom-note">Customizable on request</span>
-            </div>
-          </article>
-          <article class="report-demo-card">
-            <div class="report-demo-head">
-              <span class="report-demo-type">PDF</span>
-              <strong>Manager Review Report</strong>
-            </div>
-            <button class="report-preview-button report-image-preview" type="button" data-lightbox-trigger data-lightbox-src="assets/report-preview-pdf.png" data-lightbox-title="PDF Demo Preview">
-              <img src="assets/report-preview-pdf.png" alt="PDF demo file preview" />
-              <span class="report-preview-zoom">Click to enlarge</span>
-            </button>
-            <div class="report-demo-meta">
-              <p>Presentation-style review report with sample metrics, summary notes, and a format suitable for managers.</p>
               <span class="report-custom-note">Customizable on request</span>
             </div>
           </article>
