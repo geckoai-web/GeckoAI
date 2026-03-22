@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeckoAI | Realtime Manufacturing Monitor</title>
+  <meta
+    name="description"
+    content="GeckoAI Realtime Manufacturing Monitor provides stage-by-stage visibility, bottleneck alerts, throughput trends, and live andon coordination for production teams."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="monitor-body">
+  <div class="site-shell monitor-shell">
+    <header class="topbar">
+      <a class="brand" href="#overview">
+        <span class="brand-mark">
+          <img src="assets/app-logo.png" alt="GeckoAI app logo" />
+        </span>
+        <span class="brand-text">
+          <strong>GeckoAI</strong>
+          <small>Realtime Manufacturing Monitor</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="#overview">Overview</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#live">Live Screen</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="index.html#products">
+        Back to Products
+      </a>
+    </header>
+
+    <main>
+      <section class="hero reveal" id="overview">
+        <div class="hero-copy">
+          <p class="eyebrow">Realtime Monitoring. Bottleneck Detection. Shift Visibility.</p>
+          <h1>See your whole manufacturing line in one live control view.</h1>
+          <p class="hero-lead">
+            GeckoAI Realtime Manufacturing Monitor is designed for factories that need immediate visibility from INPUT to END.
+            It combines production targets, stage cycle times, operator status, and AI recommendations into one coordinated dashboard.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Request Monitor Demo</a>
+            <a class="button button-secondary" href="#live">Explore Live Screen</a>
+            <a class="button button-secondary" href="index.html">Open Vision Product</a>
+          </div>
+          <ul class="hero-points">
+            <li>Realtime stage status with cycle-time and idle-time tracking</li>
+            <li>Andon support for fast escalation and operator response</li>
+            <li>AI recommendation panel for dispatch and balancing decisions</li>
+          </ul>
+        </div>
+
+        <div class="hero-stage">
+          <article class="monitor-panel">
+            <div class="monitor-panel-top">
+              <strong>Global Cloud Smart Production System</strong>
+              <span>Last synchronized: 12:30:42</span>
+            </div>
+            <div class="line-strip">
+              <div class="line-stage">
+                <strong>INPUT</strong>
+                <span>26.3s avg</span>
+                <span class="stage-pill normal">Stable</span>
+              </div>
+              <div class="line-stage">
+                <strong>PREPARE</strong>
+                <span>15.8s avg</span>
+                <span class="stage-pill normal">On pace</span>
+              </div>
+              <div class="line-stage">
+                <strong>ASSEMBLY</strong>
+                <span>27.8s avg</span>
+                <span class="stage-pill alert">Bottleneck</span>
+              </div>
+              <div class="line-stage">
+                <strong>TEST</strong>
+                <span>13.2s avg</span>
+                <span class="stage-pill warn">Queue rising</span>
+              </div>
+              <div class="line-stage">
+                <strong>PACKAGE</strong>
+                <span>16.4s avg</span>
+                <span class="stage-pill normal">Normal</span>
+              </div>
+              <div class="line-stage">
+                <strong>END</strong>
+                <span>10.8s avg</span>
+                <span class="stage-pill normal">Healthy</span>
+              </div>
+            </div>
+            <div class="monitor-grid">
+              <div class="monitor-card">
+                <h4>Production Trend (Hourly)</h4>
+                <div class="production-bars">
+                  <span style="--h: 18%"></span>
+                  <span style="--h: 26%"></span>
+                  <span style="--h: 22%"></span>
+                  <span style="--h: 35%"></span>
+                  <span style="--h: 42%"></span>
+                  <span style="--h: 48%"></span>
+                  <span style="--h: 52%"></span>
+                  <span style="--h: 55%"></span>
+                  <span style="--h: 58%"></span>
+                  <span style="--h: 64%"></span>
+                  <span style="--h: 68%"></span>
+                  <span style="--h: 72%"></span>
+                  <span style="--h: 78%"></span>
+                  <span style="--h: 82%"></span>
+                  <span style="--h: 85%"></span>
+                  <span style="--h: 89%"></span>
+                  <span style="--h: 84%"></span>
+                  <span style="--h: 80%"></span>
+                  <span style="--h: 76%"></span>
+                  <span style="--h: 71%"></span>
+                  <span style="--h: 74%"></span>
+                  <span style="--h: 78%"></span>
+                  <span style="--h: 83%"></span>
+                  <span style="--h: 88%"></span>
+                </div>
+              </div>
+              <div class="monitor-card">
+                <h4>Shift KPI Snapshot</h4>
+                <div class="monitor-kpis">
+                  <div class="kpi">
+                    <span>Now Done</span>
+                    <strong>52 / 100</strong>
+                  </div>
+                  <div class="kpi">
+                    <span>Gap to Target</span>
+                    <strong>548 pcs</strong>
+                  </div>
+                  <div class="kpi">
+                    <span>Current Yield</span>
+                    <strong>91.7%</strong>
+                  </div>
+                  <div class="kpi">
+                    <span>Andon Open</span>
+                    <strong>2 cases</strong>
+                  </div>
+                </div>
+                <div class="monitor-insights">
+                  <div class="insight-item">
+                    <strong>AI Dispatch Note</strong>
+                    <p>Reassign one operator from TEST to ASSEMBLY to reduce cycle-time overflow and stabilize WIP.</p>
+                  </div>
+                  <div class="insight-item">
+                    <strong>Risk Alert</strong>
+                    <p>If ASSEMBLY remains above 26s for 20 more minutes, projected output will miss shift target by 8.4%.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="architecture">
+        <div class="section-heading">
+          <p class="eyebrow">System Design</p>
+          <h2>Built for factory floors where every minute and every station matters.</h2>
+        </div>
+        <div class="architecture-grid">
+          <article class="architecture-card">
+            <span class="card-index">01</span>
+            <h3>Data Collection Layer</h3>
+            <p>Collects machine counters, manual station inputs, barcode events, and QC outcomes into one synchronized event stream.</p>
+            <ul>
+              <li>Edge adapters for PLC and station terminals</li>
+              <li>Timestamp alignment across stage events</li>
+              <li>Shift and work-order context mapping</li>
+            </ul>
+          </article>
+          <article class="architecture-card">
+            <span class="card-index">02</span>
+            <h3>Realtime Decision Layer</h3>
+            <p>Computes cycle-time drift, queue pressure, stage throughput, and exception states to trigger practical operator actions.</p>
+            <ul>
+              <li>Bottleneck and idle detection logic</li>
+              <li>Rule-based and AI-assisted recommendations</li>
+              <li>Andon routing with role-based notifications</li>
+            </ul>
+          </article>
+          <article class="architecture-card">
+            <span class="card-index">03</span>
+            <h3>Operational Visibility Layer</h3>
+            <p>Delivers a shared visual language for operators, shift leaders, and managers with one source of production truth.</p>
+            <ul>
+              <li>Realtime dashboard and trend charts</li>
+              <li>Shift summaries and exception history</li>
+              <li>Export-ready KPI and quality tables</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="live">
+        <div class="section-heading">
+          <p class="eyebrow">Live Screen Breakdown</p>
+          <h2>A practical view modeled after real production control room usage.</h2>
+        </div>
+        <article class="feature-card">
+          <table class="stage-table">
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>Average (s)</th>
+                <th>Max Idle (s)</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>INPUT</td>
+                <td>17.3</td>
+                <td>157.0</td>
+                <td>Healthy</td>
+                <td>No action required</td>
+              </tr>
+              <tr>
+                <td>PREPARE</td>
+                <td>14.2</td>
+                <td>122.0</td>
+                <td>Healthy</td>
+                <td>Normal cadence</td>
+              </tr>
+              <tr>
+                <td>ASSEMBLY</td>
+                <td>27.8</td>
+                <td>255.0</td>
+                <td>Bottleneck</td>
+                <td>Add support operator</td>
+              </tr>
+              <tr>
+                <td>TEST</td>
+                <td>13.2</td>
+                <td>171.0</td>
+                <td>Queue warning</td>
+                <td>Prepare extra fixture</td>
+              </tr>
+              <tr>
+                <td>PACKAGE</td>
+                <td>16.4</td>
+                <td>188.0</td>
+                <td>Healthy</td>
+                <td>Monitor fill variance</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="monitor-link-row">
+            <a class="button button-secondary" href="#outcomes">See Business Outcomes</a>
+            <a class="button button-secondary" href="index.html#report-demos">Open Vision Report Demos</a>
+          </div>
+        </article>
+      </section>
+
+      <section class="section reveal" id="outcomes">
+        <div class="section-heading">
+          <p class="eyebrow">Expected Outcomes</p>
+          <h2>Monitor performance as operations happen, not after the shift ends.</h2>
+        </div>
+        <div class="scenario-grid">
+          <article class="scenario-card warm">
+            <h3>Faster Bottleneck Response</h3>
+            <p>Supervisors can identify constrained stages early and rebalance manpower before output starts to drift.</p>
+            <ul>
+              <li>Early warning for cycle-time inflation</li>
+              <li>Clear dispatch recommendations</li>
+            </ul>
+          </article>
+          <article class="scenario-card earth">
+            <h3>Higher Shift Transparency</h3>
+            <p>Operators and managers see the same numbers for production, quality, and downtime in one shared interface.</p>
+            <ul>
+              <li>Live stage-by-stage status and trends</li>
+              <li>Reduced communication delays</li>
+            </ul>
+          </article>
+          <article class="scenario-card tech">
+            <h3>Actionable Daily Records</h3>
+            <p>Shift logs, stage metrics, and andon records become concrete evidence for continuous improvement planning.</p>
+            <ul>
+              <li>Review-ready KPI summaries</li>
+              <li>Traceable operational decisions</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact reveal" id="contact">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Request a walkthrough of the Realtime Manufacturing Monitor for your line setup.</h2>
+            <p class="contact-note">
+              We can customize stage definitions, alert rules, dispatch logic, and dashboard views based on your process design and staffing model.
+            </p>
+          </div>
+          <div class="contact-card">
+            <span class="contact-label">Realtime Product Contact</span>
+            <h3>Email GeckoAI Team</h3>
+            <p>Share your line structure, shift model, and target output to receive a tailored product demo.</p>
+            <a class="contact-email" href="mailto:geckoai.contact@gmail.com?subject=Realtime%20Manufacturing%20Monitor%20Inquiry">
+              geckoai.contact@gmail.com
+            </a>
+            <a class="button button-primary contact-button" href="mailto:geckoai.contact@gmail.com?subject=Realtime%20Manufacturing%20Monitor%20Inquiry&body=Hello%20GeckoAI%20team%2C%0A%0AI%20would%20like%20a%20demo%20for%20the%20Realtime%20Manufacturing%20Monitor.%0A">
+              Send Email
+            </a>
+            <p class="contact-help">Clicking the button opens your default email app with the recipient already filled in.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>GeckoAI Realtime Manufacturing Monitor</p>
+      <p>Built for live production visibility and control</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
