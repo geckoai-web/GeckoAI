@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GeckoAI | Industrial Vision Platform</title>
+  <title>GeckoAI | Product Browser</title>
   <meta
     name="description"
-    content="GeckoAI is an industrial AI vision platform that combines labeling, training, detection, golden comparison, OCR, and reporting."
+    content="Browse GeckoAI products and choose the product page you want to explore."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,520 +19,112 @@
 <body>
   <div class="site-shell">
     <header class="topbar">
-      <a class="brand" href="#hero">
+      <a class="brand" href="index.html">
         <span class="brand-mark">
           <img src="assets/app-logo.png" alt="GeckoAI app logo" />
         </span>
         <span class="brand-text">
           <strong>GeckoAI</strong>
-          <small>Industrial Vision Platform</small>
+          <small>Product Browser</small>
         </span>
       </a>
       <nav class="nav">
-        <a href="#products">Products</a>
-        <a href="#platform">Platform</a>
-        <a href="#workflow">Workflow</a>
-        <a href="#scenarios">Use Cases</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">Products</a>
+        <a href="computer-vision.html">Computer Vision</a>
+        <a href="smart-production-monitoring.html">Smart Production Monitoring</a>
       </nav>
-      <a class="nav-cta" href="#contact">
-        Get in Touch
+      <a class="nav-cta" href="computer-vision.html">
+        Open Product
       </a>
     </header>
 
     <main>
-      <section class="hero reveal" id="hero">
+      <section class="hero reveal hero-browser" id="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Smart Labeling. Visual Inspection. Actionable Reports.</p>
-          <h1>Turn industrial images into actionable datasets, inspection decisions, and customer-ready reports.</h1>
+          <p class="eyebrow">Browse GeckoAI Products</p>
+          <h1>Choose a product page to enter.</h1>
           <p class="hero-lead">
-            GeckoAI is built for manufacturing and quality-control teams. It brings together image labeling,
-            YOLO training, golden-template comparison, OCR traceability, and management-ready reporting in one practical workflow.
+            This first page is the GeckoAI product browser. It gives a brief introduction to each product,
+            then lets visitors jump into the dedicated product page with one click.
           </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#contact">Request a Demo</a>
-            <a class="button button-secondary" href="#platform">Explore Features</a>
-            <a class="button button-secondary" href="monitor.html">Realtime Monitor Product</a>
-          </div>
-          <ul class="hero-points">
-            <li>Desktop GUI and CLI modes for both operators and automation systems</li>
-            <li>Supports bounding boxes, rotated OBB, golden comparison, OCR, and report export</li>
-            <li>Designed for packaging inspection, coffee grading, PCBA inspection, and more</li>
-          </ul>
         </div>
 
         <div class="hero-stage">
           <div class="signal-card glass">
-            <span class="signal-label">Unified Workflow</span>
+            <span class="signal-label">How It Works</span>
             <div class="signal-grid">
               <div>
-                <strong>Label</strong>
-                <p>Bounding box, OBB, and class management</p>
+                <strong>Step 1</strong>
+                <p>Browse the available GeckoAI products</p>
               </div>
               <div>
-                <strong>Train</strong>
-                <p>YOLO, YOLO-OBB, and CPU/GPU runtime options</p>
+                <strong>Step 2</strong>
+                <p>Read a short brief for each option</p>
               </div>
               <div>
-                <strong>Inspect</strong>
-                <p>Golden comparison, OCR, and pass-fail logic</p>
+                <strong>Step 3</strong>
+                <p>Click the button for the product page</p>
               </div>
               <div>
-                <strong>Report</strong>
-                <p>CSV, XLSX, HTML, and PDF dashboards</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="preview-panel glass">
-            <div class="preview-header">
-              <span class="dot red"></span>
-              <span class="dot amber"></span>
-              <span class="dot green"></span>
-              <span class="preview-title">GeckoAI inspection snapshot</span>
-            </div>
-            <div class="preview-content">
-              <div class="preview-image">
-                <span class="scan-line"></span>
-                <div class="bbox one">label</div>
-                <div class="bbox two">seal</div>
-                <div class="bbox three">valve</div>
-                <div class="status-chip pass">PASS 98.6%</div>
-              </div>
-              <div class="preview-report">
-                <div class="report-row">
-                  <span>Golden Match</span>
-                  <strong>Aligned</strong>
-                </div>
-                <div class="report-row">
-                  <span>OCR ID</span>
-                  <strong>PCBA-2048</strong>
-                </div>
-                <div class="report-row">
-                  <span>Output</span>
-                  <strong> HTML / PDF / XLSX / CSV</strong>
-                </div>
-                <div class="report-bars">
-                  <span style="--bar: 92%"></span>
-                  <span style="--bar: 74%"></span>
-                  <span style="--bar: 85%"></span>
-                  <span style="--bar: 66%"></span>
-                </div>
+                <strong>Step 4</strong>
+                <p>Explore the full product details there</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-
-      <section class="stats reveal">
-        <article>
-          <strong>All-in-One</strong>
-          <p>Labeling, training, detection, OCR, and reporting in one consistent workflow</p>
-        </article>
-        <article>
-          <strong>Desktop + CLI</strong>
-          <p>Built for both on-site operators and production-side automation pipelines</p>
-        </article>
-        <article>
-          <strong>Golden Inspection</strong>
-          <p>Supports template comparison, background cutting, and piece-level defect localization</p>
-        </article>
-        <article>
-          <strong>Management Reports</strong>
-          <p>Creates outputs that QA teams, engineers, and managers can review immediately</p>
-        </article>
       </section>
 
       <section class="section reveal" id="products">
         <div class="section-heading">
-          <p class="eyebrow">Products</p>
-          <h2>Two connected products for visual inspection and live production control.</h2>
+          <p class="eyebrow">Product Options</p>
+          <h2>Two products, two dedicated pages.</h2>
         </div>
         <div class="product-grid">
-          <article class="product-card product-card-active">
-            <span class="card-index">01</span>
-            <h3>GeckoAI Vision Inspection</h3>
-            <p>Already deployed for labeling, model training, golden comparison, OCR traceability, and inspection reporting.</p>
-            <ul>
-              <li>Operator-focused desktop workspace</li>
-              <li>Batch analysis and evidence exports</li>
-              <li>CSV, XLSX, HTML, PDF output formats</li>
-            </ul>
-            <a class="product-link" href="#platform">Explore inspection platform</a>
-          </article>
-          <article class="product-card product-card-new">
-            <span class="card-index">02</span>
-            <h3>Realtime Manufacturing Monitor</h3>
-            <p>New dashboard product for line-stage monitoring, andon alerts, throughput trends, and AI recommendations from live station signals.</p>
-            <ul>
-              <li>Stage bottleneck visibility and drift warnings</li>
-              <li>Shift-level production and quality summaries</li>
-              <li>Operator notes and alert-driven follow-up</li>
-            </ul>
-            <a class="product-link" href="monitor.html">Open product introduction page</a>
-          </article>
-        </div>
-      </section>
-
-      <section class="section reveal" id="screenshots">
-        <div class="section-heading">
-          <p class="eyebrow">Product Screens</p>
-          <h2>Real GeckoAI interface views from daily labeling, training, and inspection work.</h2>
-        </div>
-        <div class="carousel" data-carousel>
-          <button class="carousel-arrow prev" type="button" aria-label="Previous screenshot" data-carousel-prev>
-            &#8249;
-          </button>
-          <div class="carousel-viewport">
-            <article class="shot-card is-active" data-slide>
-              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/label-ui.png" data-lightbox-title="Label Workspace">
-                <img src="assets/label-ui.png" alt="GeckoAI label workspace screenshot" />
-                <span class="shot-zoom">Click to enlarge</span>
-                <span class="shot-tag top-left">Project toolbar</span>
-                <span class="shot-tag top-right">Export and training</span>
-                <span class="shot-tag mid-right">Class tools</span>
-                <span class="shot-tag bottom-right">Dataset navigation</span>
-              </button>
-              <div class="shot-copy">
-                <strong>Label Workspace</strong>
-                <p>Review labeled components, manage classes, auto-detect candidates, and move through datasets with a production-ready annotation workflow.</p>
-              </div>
-            </article>
-            <article class="shot-card" data-slide>
-              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/detect-ui.png" data-lightbox-title="Detect Workspace">
-                <img src="assets/detect-ui.png" alt="GeckoAI detect workspace screenshot" />
-                <span class="shot-zoom">Click to enlarge</span>
-                <span class="shot-tag top-left">Detection overlays</span>
-                <span class="shot-tag top-right">Mode controls</span>
-                <span class="shot-tag mid-right">Detected classes</span>
-                <span class="shot-tag bottom-right">Fast image review</span>
-              </button>
-              <div class="shot-copy">
-                <strong>Detect Workspace</strong>
-                <p>Inspect product images with detection overlays, class summaries, and a focused review panel for fast pass-fail analysis.</p>
-              </div>
-            </article>
-            <article class="shot-card" data-slide>
-              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/train-ui.png" data-lightbox-title="Training Setup">
-                <img src="assets/train-ui.png" alt="GeckoAI training settings screenshot" />
-                <span class="shot-zoom">Click to enlarge</span>
-                <span class="shot-tag top-right">Theme switch</span>
-                <span class="shot-tag mid-left">Output path</span>
-                <span class="shot-tag mid-right">Model and device</span>
-                <span class="shot-tag bottom-center">Guided training flow</span>
-              </button>
-              <div class="shot-copy">
-                <strong>Training Setup</strong>
-                <p>Configure output paths, model weights, epochs, image size, and device settings inside a clean step-by-step training workflow.</p>
-              </div>
-            </article>
-            <article class="shot-card" data-slide>
-              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="demo-reports/demobeforecut.jpeg" data-lightbox-title="Background Cut Result">
-                <img src="demo-reports/demobeforecut.jpeg" alt="GeckoAI background cut source image" />
-                <span class="shot-zoom">Click to enlarge</span>
-                <span class="shot-tag top-left">Background removed</span>
-                <span class="shot-tag top-right">Golden board output</span>
-                <span class="shot-tag bottom-center">Ready for comparison workflow</span>
-              </button>
-              <div class="shot-copy">
-                <strong>Background Cut</strong>
-                <p>Extract the product region from a noisy image background so downstream golden comparison and defect inspection stay focused on the true board area.</p>
-              </div>
-            </article>
-            <article class="shot-card" data-slide>
-              <button class="shot-image-button" type="button" data-lightbox-trigger data-lightbox-src="assets/template-cut-piece.png" data-lightbox-title="Template Cut Result">
-                <img src="assets/template-cut-piece.png" alt="GeckoAI template cut piece result" />
-                <span class="shot-zoom">Click to enlarge</span>
-                <span class="shot-tag top-left">Template piece</span>
-                <span class="shot-tag top-right">Golden reference crop</span>
-                <span class="shot-tag bottom-center">Used for piece-level matching</span>
-              </button>
-              <div class="shot-copy">
-                <strong>Template Cut</strong>
-                <p>Generate reusable golden-template pieces for component-level matching, alignment checks, and localized inspection logic in repeatable QA flows.</p>
-              </div>
-            </article>
-          </div>
-          <button class="carousel-arrow next" type="button" aria-label="Next screenshot" data-carousel-next>
-            &#8250;
-          </button>
-        </div>
-        <div class="carousel-dots" data-carousel-dots>
-          <button class="is-active" type="button" aria-label="Go to screenshot 1" data-carousel-dot></button>
-          <button type="button" aria-label="Go to screenshot 2" data-carousel-dot></button>
-          <button type="button" aria-label="Go to screenshot 3" data-carousel-dot></button>
-          <button type="button" aria-label="Go to screenshot 4" data-carousel-dot></button>
-          <button type="button" aria-label="Go to screenshot 5" data-carousel-dot></button>
-        </div>
-      </section>
-
-      <section class="section reveal" id="platform">
-        <div class="section-heading">
-          <p class="eyebrow">Platform Capabilities</p>
-          <h2>One platform connecting dataset preparation, model training, and inspection decisions.</h2>
-        </div>
-        <div class="card-grid">
-          <article class="feature-card">
-            <span class="card-index">01</span>
-            <h3>Label Workspace</h3>
-            <p>Annotate with standard boxes or rotated OBB, manage classes, edit faster with undo-redo, and accelerate work with model-assisted labeling.</p>
-          </article>
-          <article class="feature-card">
-            <span class="card-index">02</span>
-            <h3>Detect Workspace</h3>
-            <p>Run batch detection, golden comparison, background-cut inspection, fail-reason analysis, and visual evidence export for every image.</p>
-          </article>
-          <article class="feature-card">
-            <span class="card-index">03</span>
-            <h3>Training Workflow</h3>
-            <p>Train YOLO or YOLO-OBB models with flexible CPU-GPU runtime selection, progress tracking, and packaged deployment support.</p>
-          </article>
-          <article class="feature-card">
-            <span class="card-index">04</span>
-            <h3>Automation-Ready CLI</h3>
-            <p>Integrate with MES, schedulers, or factory scripts using watch mode, JSON summaries, and exit-code control.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section workflow reveal" id="workflow">
-        <div class="section-heading">
-          <p class="eyebrow">Workflow</p>
-          <h2>A workflow designed for real factory operations and QA review.</h2>
-        </div>
-        <div class="timeline">
-          <article class="timeline-step">
-            <span>Step 1</span>
-            <h3>Import Images and Datasets</h3>
-            <p>Supports plain image folders, YOLO datasets, golden packages, and camera-captured sources.</p>
-          </article>
-          <article class="timeline-step">
-            <span>Step 2</span>
-            <h3>Label and Define Standards</h3>
-            <p>Create classes, refine OBB annotations, and export golden packages to establish a repeatable inspection baseline.</p>
-          </article>
-          <article class="timeline-step">
-            <span>Step 3</span>
-            <h3>Train and Deploy Models</h3>
-            <p>Automatically aligns with YOLO or YOLO-OBB based on dataset format while keeping CPU and GPU flexibility.</p>
-          </article>
-          <article class="timeline-step">
-            <span>Step 4</span>
-            <h3>Inspect, Compare, and Report</h3>
-            <p>Run golden comparison, OCR traceability, and dashboard reporting to make review and follow-up much clearer.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section reveal" id="scenarios">
-        <div class="section-heading">
-          <p class="eyebrow">Use Cases</p>
-          <h2>The same platform can be adapted to different industrial inspection workflows.</h2>
-        </div>
-        <div class="scenario-grid">
-          <article class="scenario-card warm">
-            <h3>Coffee Bag Packaging Inspection</h3>
-            <p>Verify packaging completeness, label placement, seal areas, and valve presence against expected standards.</p>
-            <ul>
-              <li>Golden comparison for layout consistency</li>
-              <li>Pass-fail reasons flow directly into reports</li>
-            </ul>
-          </article>
-          <article class="scenario-card earth">
-            <h3>Coffee Bean Grading</h3>
-            <p>Count broken beans, black beans, insect damage, and foreign materials to build structured quality datasets.</p>
-            <ul>
-              <li>Model detection with class-level statistics</li>
-              <li>Useful for QA and procurement review</li>
-            </ul>
-          </article>
-          <article class="scenario-card tech">
-            <h3>PCBA Defect Inspection</h3>
-            <p>Combine background cutting, piece inspection, golden comparison, and OCR to localize missing or shifted components.</p>
-            <ul>
-              <li>Supports board-level and piece-level analysis</li>
-              <li>Writes ID and sub-ID into traceability reports</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section outputs reveal">
-        <div class="section-heading">
-          <p class="eyebrow">Deliverables</p>
-          <h2>The output is not just an image. It becomes a reviewable, shareable inspection result.</h2>
-        </div>
-        <div class="outputs-layout">
-          <div class="outputs-copy">
+          <article class="product-card product-card-live">
+            <div class="product-card-head">
+              <span class="product-number">01</span>
+              <span class="product-status">Now</span>
+            </div>
+            <h3>Computer Vision Product</h3>
             <p>
-              GeckoAI organizes model outputs into formats that operators, QA teams, managers, and customers can all understand, helping every stakeholder align around the same evidence.
+              GeckoAI's current product for AI labeling, YOLO training, detection, golden comparison,
+              OCR traceability, and reporting across industrial QA workflows.
             </p>
-            <div class="output-tags">
-              <span>YOLO Labels</span>
-              <span>Golden Package</span>
-              <span>Rendered Evidence</span>
-              <span>CSV</span>
-              <span>XLSX</span>
-              <span>HTML Dashboard</span>
-              <span>PDF Report</span>
-              <span>JSON Summary</span>
-            </div>
-            <div class="custom-note">
-              <span class="custom-note-label">Collaboration Ready</span>
-              <h3>Custom reports and feature extensions are available for project-based collaboration.</h3>
-              <p>
-                We can tailor report layouts, export fields, inspection rules, workflow steps, and UI functions for different factories, product lines, and QA requirements.
-              </p>
-              <div class="custom-tags">
-                <span>Custom Report Layouts</span>
-                <span>New Export Fields</span>
-                <span>Inspection Logic</span>
-                <span>Workflow Features</span>
-              </div>
-            </div>
-          </div>
-          <div class="terminal-card glass">
-            <div class="terminal-head">CLI Example</div>
-            <pre><code>GeckoAI-CLI.exe detect ^
-  --model best.pt ^
-  --source C:\inspection\incoming ^
-  --output C:\inspection\results ^
-  --golden-dir C:\inspection\golden ^
-  --save-json summary.json ^
-  --fail-exit-code 10</code></pre>
-          </div>
-        </div>
-      </section>
-
-      <section class="section reveal" id="report-demos">
-        <div class="section-heading">
-          <p class="eyebrow">Report Demos</p>
-          <h2>Demo report formats with sample data for presentation purposes.</h2>
-          <p class="section-note">
-            The examples below use fictional records and simulated values to show how GeckoAI deliverables can look in real projects.
-          </p>
-        </div>
-        <div class="report-demo-grid">
-          <article class="report-demo-card report-demo-card-wide">
-            <div class="report-demo-head">
-              <span class="report-demo-type">CSV / XLSX</span>
-              <strong>Inspection Table Export</strong>
-            </div>
-            <div class="report-table-layout">
-              <div class="report-table-preview report-table-preview-wide report-table-preview-static">
-                <div class="report-table-grid report-table-header report-six-col">
-                  <span>image_name</span>
-                  <span>result</span>
-                  <span>fail_reason</span>
-                  <span>ocr_id</span>
-                  <span>confidence</span>
-                  <span>inspection_time</span>
-                </div>
-                <div class="report-table-grid report-six-col">
-                  <span>IMG_001</span>
-                  <span>PASS</span>
-                  <span>None</span>
-                  <span>PACK-240316-001</span>
-                  <span>0.992</span>
-                  <span>2026/3/16 08:30</span>
-                </div>
-                <div class="report-table-grid report-six-col">
-                  <span>IMG_002</span>
-                  <span>FAIL</span>
-                  <span>Label Shift</span>
-                  <span>PACK-240316-002</span>
-                  <span>0.947</span>
-                  <span>2026/3/16 08:31</span>
-                </div>
-                <div class="report-table-grid report-six-col">
-                  <span>IMG_003</span>
-                  <span>PASS</span>
-                  <span>None</span>
-                  <span>PACK-240316-003</span>
-                  <span>0.988</span>
-                  <span>2026/3/16 08:31</span>
-                </div>
-                <div class="report-table-grid report-six-col">
-                  <span>IMG_004</span>
-                  <span>FAIL</span>
-                  <span>OCR Mismatch</span>
-                  <span>PACK-240316-004</span>
-                  <span>0.913</span>
-                  <span>2026/3/16 08:32</span>
-                </div>
-                <div class="report-table-grid report-six-col">
-                  <span>IMG_005</span>
-                  <span>PASS</span>
-                  <span>None</span>
-                  <span>PACK-240316-005</span>
-                  <span>0.995</span>
-                  <span>2026/3/16 08:33</span>
-                </div>
-              </div>
-              <div class="report-format-note">
-                <span class="report-custom-note">Available in XLSX and CSV</span>
-                <p>This preview uses the real export column structure with demo-only sample data, so the layout matches an actual GeckoAI report while keeping the content fictional.</p>
-                <p>Fields, ordering, calculated columns, and summary rows can be customized based on customer workflow and reporting requirements.</p>
-              </div>
+            <ul>
+              <li>Ready now with a full dedicated product page</li>
+              <li>Best for industrial inspection, QA, and visual workflow automation</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-primary" href="computer-vision.html">Open Computer Vision Product</a>
             </div>
           </article>
-          <article class="report-demo-card report-demo-card-wide">
-            <div class="report-demo-head">
-              <span class="report-demo-type">HTML</span>
-              <strong>Dashboard Snapshot</strong>
+
+          <article class="product-card product-card-upcoming">
+            <div class="product-card-head">
+              <span class="product-number">02</span>
+              <span class="product-status muted">Monitoring</span>
             </div>
-            <button class="report-preview-button report-image-preview report-image-preview-contain" type="button" data-lightbox-trigger data-lightbox-src="demo-reports/html_screenshot.png" data-lightbox-title="HTML Demo Preview">
-              <img src="demo-reports/html_screenshot.png" alt="HTML demo file preview" />
-              <span class="report-preview-zoom">Click to enlarge</span>
-            </button>
-            <div class="report-demo-meta">
-              <div class="report-demo-copy">
-                <p>Live GeckoAI dashboard demo based on a real report structure, with presentation-safe sample content and the fail-only comparison image removed. A PDF version is also available for reporting and presentation needs.</p>
-                <a class="report-demo-link" href="demo-reports/detect_results_20260315_003625_dashboard.html" target="_blank" rel="noreferrer">Open live HTML demo</a>
-              </div>
-              <span class="report-custom-note">Customizable on request</span>
+            <h3>Global Smart Production Monitoring System</h3>
+            <p>
+              A cloud-oriented production monitoring product for real-time work-order visibility, station
+              activity tracking, workforce and cost analysis, alerting, and HTML-style production reports.
+            </p>
+            <ul>
+              <li>Covers dashboard, realtime status, alerts, workforce, cost, and error-code analysis</li>
+              <li>Built for line supervisors, IE, manufacturing, engineering, and planning teams</li>
+            </ul>
+            <div class="product-actions">
+              <a class="button button-secondary" href="smart-production-monitoring.html">Open Monitoring Product</a>
             </div>
           </article>
-        </div>
-      </section>
-
-      <section class="section contact reveal" id="contact">
-        <div class="contact-panel">
-          <div>
-            <p class="eyebrow">Contact</p>
-            <h2>For product demos, partnership discussions, or customized deployment requests, please get in touch.</h2>
-            <p class="contact-note">
-              GeckoAI can also be discussed as a collaboration project, including customized reports, added workflow functions, and feature adjustments for your use case.
-            </p>
-          </div>
-          <div class="contact-card">
-            <span class="contact-label">Product Contact</span>
-            <h3>Email GeckoAI Team</h3>
-            <p>Send product demo requests, partnership inquiries, or deployment questions directly to our mailbox.</p>
-            <a class="contact-email" href="mailto:geckoai.contact@gmail.com?subject=GeckoAI%20Product%20Inquiry">
-              geckoai.contact@gmail.com
-            </a>
-            <a class="button button-primary contact-button" href="mailto:geckoai.contact@gmail.com?subject=GeckoAI%20Product%20Inquiry&body=Hello%20GeckoAI%20team%2C%0A%0AI%20would%20like%20to%20learn%20more%20about%20your%20product.%0A">
-              Send Email
-            </a>
-            <p class="contact-help">Clicking the button opens your default email app with the recipient already filled in.</p>
-          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <p>GeckoAI Product Website</p>
-      <p>Built for industrial AI inspection workflows</p>
+      <p>Browse products, then enter the page you want</p>
     </footer>
-  </div>
-
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" type="button" aria-label="Close image viewer" data-lightbox-close>&times;</button>
-    <div class="lightbox-dialog">
-      <img src="" alt="" id="lightboxImage" />
-      <div class="lightbox-caption" id="lightboxCaption"></div>
-    </div>
   </div>
 
   <script src="app.js"></script>

@@ -4,6 +4,7 @@ const sections = Array.from(document.querySelectorAll("main section[id]"));
 const carousel = document.querySelector("[data-carousel]");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
+const lightboxHtml = document.getElementById("lightboxHtml");
 const lightboxCaption = document.getElementById("lightboxCaption");
 
 const revealObserver = new IntersectionObserver(
@@ -77,8 +78,11 @@ if (carousel) {
   renderCarousel();
 }
 
-const openLightbox = (src, title, alt) => {
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
+const openLightboxImage = (src, title, alt) => {
+  if (!lightbox || !lightboxImage || !lightboxCaption || !lightboxHtml) return;
+  lightboxHtml.innerHTML = "";
+  lightboxHtml.style.display = "none";
+  lightboxImage.style.display = "block";
   lightboxImage.src = src;
   lightboxImage.alt = alt || title || "Screenshot";
   lightboxCaption.textContent = title || "";
@@ -87,21 +91,47 @@ const openLightbox = (src, title, alt) => {
   document.body.style.overflow = "hidden";
 };
 
+const openLightboxHtml = (contentNode, title) => {
+  if (!lightbox || !lightboxImage || !lightboxCaption || !lightboxHtml || !contentNode) return;
+  lightboxImage.src = "";
+  lightboxImage.alt = "";
+  lightboxImage.style.display = "none";
+  lightboxHtml.innerHTML = "";
+  lightboxHtml.appendChild(contentNode.cloneNode(true));
+  lightboxHtml.style.display = "block";
+  lightboxCaption.textContent = title || "";
+  lightbox.classList.add("is-open");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+};
+
 const closeLightbox = () => {
-  if (!lightbox || !lightboxImage || !lightboxCaption) return;
+  if (!lightbox || !lightboxImage || !lightboxCaption || !lightboxHtml) return;
   lightbox.classList.remove("is-open");
   lightbox.setAttribute("aria-hidden", "true");
   lightboxImage.src = "";
+  lightboxImage.style.display = "";
+  lightboxHtml.innerHTML = "";
+  lightboxHtml.style.display = "none";
   lightboxCaption.textContent = "";
   document.body.style.overflow = "";
 };
 
 document.querySelectorAll("[data-lightbox-trigger]").forEach((trigger) => {
   trigger.addEventListener("click", () => {
-    openLightbox(
+    openLightboxImage(
       trigger.getAttribute("data-lightbox-src"),
       trigger.getAttribute("data-lightbox-title"),
       trigger.querySelector("img")?.alt || ""
+    );
+  });
+});
+
+document.querySelectorAll("[data-table-lightbox-trigger]").forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    openLightboxHtml(
+      trigger,
+      trigger.getAttribute("data-table-lightbox-title") || "Preview"
     );
   });
 });

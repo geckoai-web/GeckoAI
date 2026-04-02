@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GeckoAI | Global Smart Production Monitoring System</title>
+  <meta
+    name="description"
+    content="A smart production monitoring system for realtime line status, work-order visibility, alerts, workforce analysis, cost tracking, and production reporting."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Sora:wght@400;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">
+          <img src="assets/app-logo.png" alt="GeckoAI app logo" />
+        </span>
+        <span class="brand-text">
+          <strong>GeckoAI</strong>
+          <small>Smart Production Monitoring</small>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">All Products</a>
+        <a href="#platform">Platform</a>
+        <a href="#functions">Functions</a>
+        <a href="#alerts">Alerts</a>
+        <a href="#reports">Reports</a>
+        <a href="#manual">Manual</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="index.html">
+        Back to Products
+      </a>
+    </header>
+
+    <main>
+      <section class="hero reveal" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Global Smart Production Monitoring System</p>
+          <h1 class="hero-title-compact">Monitor work orders, stations, operators, alerts, and production risk from one connected production view.</h1>
+          <p class="hero-lead">
+            This product connects production activity, station records, operator status, planning data,
+            historical work-order data, and alert logic into one monitoring workflow so supervisors and
+            cross-functional teams can react faster and manage production with clearer visibility.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#platform">Explore Features</a>
+            <a class="button button-secondary" href="#reports">View Reporting Scope</a>
+          </div>
+          <ul class="hero-points">
+            <li>Realtime dashboard for current status, WIP, target progress, and last activity</li>
+            <li>Automatic alerts for idle time, station overtime, test failure, and schedule mismatch</li>
+            <li>Daily and all-time report views for output, workforce, cost, error codes, and utilisation</li>
+          </ul>
+        </div>
+
+        <div class="hero-stage">
+          <div class="signal-card glass">
+            <span class="signal-label">Core Monitoring Flow</span>
+            <div class="signal-grid">
+              <div>
+                <strong>Dashboard</strong>
+                <p>Track realtime line status, work orders, WIP, and target progress</p>
+              </div>
+              <div>
+                <strong>Alerts</strong>
+                <p>Detect idle operators, overdue station time, failures, and delay risk</p>
+              </div>
+              <div>
+                <strong>Analysis</strong>
+                <p>Compare standard vs actual workforce, time, cost, and capacity</p>
+              </div>
+              <div>
+                <strong>Reports</strong>
+                <p>Generate daily and long-range HTML-style production reports</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-panel glass">
+            <div class="preview-header">
+              <span class="dot red"></span>
+              <span class="dot amber"></span>
+              <span class="dot green"></span>
+              <span class="preview-title">Example Monitoring Data</span>
+            </div>
+            <div class="output-brief-wrap">
+              <table class="output-brief-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Example Data</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Work Order</td>
+                    <td>WM00ZF1076342</td>
+                  </tr>
+                  <tr>
+                    <td>Current Status</td>
+                    <td>In Production</td>
+                  </tr>
+                  <tr>
+                    <td>Now Done</td>
+                    <td>108 / 50 pcs</td>
+                  </tr>
+                  <tr>
+                    <td>17:00 Estimate</td>
+                    <td>139 Cap / 287 / 50</td>
+                  </tr>
+                  <tr>
+                    <td>20:00 Estimate</td>
+                    <td>185 Cap / 287 / 50</td>
+                  </tr>
+                  <tr>
+                    <td>All Time Progress</td>
+                    <td>1050 / 216 (0)</td>
+                  </tr>
+                  <tr>
+                    <td>Current Cost</td>
+                    <td>$47,700 (78.1%)</td>
+                  </tr>
+                  <tr>
+                    <td>Operator Summary</td>
+                    <td>Actual / IE: 10 / 4 (+6)</td>
+                  </tr>
+                  <tr>
+                    <td>Alert Example</td>
+                    <td>[not responded] FINAL08-FWUPDATE timeout line</td>
+                  </tr>
+                  <tr>
+                    <td>Recommendation</td>
+                    <td>Prioritize FINAL06-CAMERA and FINAL05-AUDIO</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats reveal">
+        <article>
+          <strong>Realtime Status</strong>
+          <p>Monitor running, off-duty, hold, idle, and issue-stop conditions with one dashboard view.</p>
+        </article>
+        <article>
+          <strong>Work Order Risk</strong>
+          <p>Compare planned vs actual production and highlight delay risk with status indicators.</p>
+        </article>
+        <article>
+          <strong>Workforce + Cost</strong>
+          <p>Track standard vs actual manpower, projected labour cost, and cost per output trend.</p>
+        </article>
+        <article>
+          <strong>Error Visibility</strong>
+          <p>Review station-level test error code records, timing patterns, and operator correlations.</p>
+        </article>
+      </section>
+
+      <section class="section reveal" id="platform">
+        <div class="section-heading">
+          <p class="eyebrow">Platform Capabilities</p>
+          <h2>A monitoring platform built around visibility, response, and production decision support.</h2>
+        </div>
+        <div class="card-grid">
+          <article class="feature-card">
+            <span class="card-index">01</span>
+            <h3>Dashboard and Work-Order View</h3>
+            <p>Browse dates, filter work orders, review current status, update time, WIP quantity, production target, actual output, and work-order details from one dashboard.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">02</span>
+            <h3>Station and DUT Traceability</h3>
+            <p>Track station records, log per-SN history, review DUT movement, and inspect time-based station activity for traceability and bottleneck analysis.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">03</span>
+            <h3>Capacity and Workforce Monitoring</h3>
+            <p>Compare actual vs standard workforce, current operator status, projected hourly output, and production capacity risk throughout the day.</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-index">04</span>
+            <h3>Cost and Utilisation Analysis</h3>
+            <p>Estimate workforce cost, cost per station, cost per piece, and utilisation trends to support IE, manufacturing, and management decisions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="functions">
+        <div class="section-heading">
+          <p class="eyebrow">Function Screens</p>
+          <h2>Move over each labeled dashboard area to see what that section does.</h2>
+        </div>
+        <article class="dashboard-shot-card">
+          <div class="dashboard-shot-stage">
+            <img src="demo-report2/dashboard.png" alt="Global Smart Production Monitoring System dashboard screenshot" />
+            <button
+              class="dashboard-zoom-button"
+              type="button"
+              data-lightbox-trigger
+              data-lightbox-src="demo-report2/dashboard.png"
+              data-lightbox-title="Global Smart Production Monitoring System Dashboard"
+            >
+              Click to enlarge
+            </button>
+            <button class="dashboard-tag header" type="button">
+              <span class="dashboard-tag-label">Header and line flow</span>
+              <span class="dashboard-detail">Shows work-order identity, model info, current stage flow, time stamps, live progress, and production-running status.</span>
+            </button>
+            <button class="dashboard-tag production" type="button">
+              <span class="dashboard-tag-label">Production</span>
+              <span class="dashboard-detail">Focuses on completed quantity, target quantity, estimated end-of-day output, hourly trend, and output-risk comparison.</span>
+            </button>
+            <button class="dashboard-tag operator" type="button">
+              <span class="dashboard-tag-label">Operator</span>
+              <span class="dashboard-detail">Lists actual versus IE manpower, station-level operator activity, recent records, and operator timing visibility.</span>
+            </button>
+            <button class="dashboard-tag time" type="button">
+              <span class="dashboard-tag-label">Time</span>
+              <span class="dashboard-detail">Summarizes station operation time, IE standard time, tolerance logic, and time distribution analysis.</span>
+            </button>
+            <button class="dashboard-tag monitor" type="button">
+              <span class="dashboard-tag-label">Monitor</span>
+              <span class="dashboard-detail">Tracks station overview, operator IDs, WIP counts, standard thresholds, and realtime per-station operating conditions.</span>
+            </button>
+            <button class="dashboard-tag recommendation" type="button">
+              <span class="dashboard-tag-label">Smart Recommendation</span>
+              <span class="dashboard-detail">Provides system-generated improvement suggestions such as bottleneck review, priority stations, and likely production-impact actions.</span>
+            </button>
+            <button class="dashboard-tag alert" type="button">
+              <span class="dashboard-tag-label">Alert</span>
+              <span class="dashboard-detail">Shows alert records, response tracking, idle-line warnings, timeout events, and abnormal-event management history.</span>
+            </button>
+            <button class="dashboard-tag workorder" type="button">
+              <span class="dashboard-tag-label">Work Order</span>
+              <span class="dashboard-detail">Displays work-order risk, basic details, daily progress, delay status, and production context for the current job.</span>
+            </button>
+            <button class="dashboard-tag cost" type="button">
+              <span class="dashboard-tag-label">Cost</span>
+              <span class="dashboard-detail">Covers labour cost by operator and station, projected total cost, and cost trend against target output.</span>
+            </button>
+            <button class="dashboard-tag test" type="button">
+              <span class="dashboard-tag-label">Test</span>
+              <span class="dashboard-detail">Highlights test results, pass-fail distribution, event timing, and quality-related signal patterns across stages.</span>
+            </button>
+          </div>
+          <div class="function-photo-copy">
+            <strong>Dashboard Main View</strong>
+            <p>Shows the main monitoring screen with hoverable labels for header flow, production, operator, time, monitor, recommendation, alert, work order, cost, and test views.</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="section workflow reveal" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">Monitoring Workflow</p>
+          <h2>From raw production activity to alerts, analysis, and action.</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-step">
+            <span>Step 1</span>
+            <h3>Collect live production records</h3>
+            <p>Capture work-order activity, station timing, operator records, WIP movement, test results, and planning references.</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 2</span>
+            <h3>Compare actual vs expected state</h3>
+            <p>Check schedule alignment, target output, standard workforce, operation time, tolerance thresholds, and station behaviour.</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 3</span>
+            <h3>Trigger alerts and evaluate risk</h3>
+            <p>Raise alerts for operator idle time, station timeout, test failure, scheduling mismatch, and production delay risk.</p>
+          </article>
+          <article class="timeline-step">
+            <span>Step 4</span>
+            <h3>Review reports and improve decisions</h3>
+            <p>Use dashboard views and HTML-style reports to support supervisor response, balancing, maintenance, training, and planning decisions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="modules">
+        <div class="section-heading">
+          <p class="eyebrow">Detailed Modules</p>
+          <h2>The product covers multiple production-management views, not just a single dashboard.</h2>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card">
+            <h3>Dashboard Module</h3>
+            <ul>
+              <li>Date selection and work-order filtering</li>
+              <li>Current status, update, settings, and day or total report switching</li>
+              <li>Current WIP pcs, last activity time, output, station, and work-order details</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Output and Capacity Module</h3>
+            <ul>
+              <li>Actual output versus target output</li>
+              <li>Projected hourly output and end-of-day capacity estimation</li>
+              <li>Risk-indicator view for schedule achievement and overtime need</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Workforce Module</h3>
+            <ul>
+              <li>Actual versus standard workforce status</li>
+              <li>Operator states such as in production, idle, and away</li>
+              <li>Operator timing, activity history, and flexible manpower evaluation</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Operation-Time Module</h3>
+            <ul>
+              <li>Station minimum, average, and maximum operation time</li>
+              <li>Standard time and tolerance settings for automatic warning logic</li>
+              <li>Operation-time distribution and hourly output distribution by station</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Alert Module</h3>
+            <ul>
+              <li>Scheduled work order not started</li>
+              <li>Operator idle beyond allowed time</li>
+              <li>Station operation timeout and station test failure</li>
+              <li>Supervisor notification and response history recording</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Error and Trace Module</h3>
+            <ul>
+              <li>Per-SN route history and station records</li>
+              <li>Daily test error code records and abnormal time-period identification</li>
+              <li>Error code correlation with operators, stations, and fail count</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Cost Module</h3>
+            <ul>
+              <li>Projected workforce cost for now, 17:00, 20:00, and target completion time</li>
+              <li>Projected operation cost per station and per trial</li>
+              <li>Total workforce cost range and hourly cost per DUT trend</li>
+            </ul>
+          </article>
+          <article class="detail-card">
+            <h3>Utilisation and Suggestion Module</h3>
+            <ul>
+              <li>Operator and machine utilisation review</li>
+              <li>Station balancing and idle-time evaluation</li>
+              <li>Suggestion-oriented analysis for training, maintenance, and layout improvement</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="alerts">
+        <div class="section-heading">
+          <p class="eyebrow">Alerts and Intelligence</p>
+          <h2>Realtime alert logic is one of the core parts of the product.</h2>
+        </div>
+        <div class="scenario-grid">
+          <article class="scenario-card warm">
+            <h3>Automatic Alert System</h3>
+            <p>Trigger alerts when scheduled work orders are not started, operators stay idle too long, station operation exceeds standard time, or tests fail.</p>
+            <ul>
+              <li>Supports multi-level supervisor notification logic</li>
+              <li>Creates response records for follow-up and analysis</li>
+            </ul>
+          </article>
+          <article class="scenario-card earth">
+            <h3>Risk Assessment</h3>
+            <p>Use status lights, projected output, hourly capacity comparison, and work-order history to estimate production delay risk and overtime need.</p>
+            <ul>
+              <li>Compares actual output against target and expected capacity</li>
+              <li>Supports frontline production judgement with visual signals</li>
+            </ul>
+          </article>
+          <article class="scenario-card tech">
+            <h3>Intelligent Production Insights</h3>
+            <p>Combine people, machines, materials, planning, process, and environment data to guide operator assignment, maintenance timing, and abnormal handling.</p>
+            <ul>
+              <li>Supports operator suitability and training evaluation</li>
+              <li>Supports machine maintenance and high-defect material warning</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="departments">
+        <div class="section-heading">
+          <p class="eyebrow">Department Value</p>
+          <h2>The system is meant to connect multiple departments through one production data layer.</h2>
+        </div>
+        <div class="detail-grid detail-grid-wide">
+          <article class="detail-card">
+            <h3>Manufacturing</h3>
+            <p>Compare actual capacity versus planning schedule, review work-order achievement, track idle operators and DUT buildup, and manage frontline response to risk alerts.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Industrial Engineering</h3>
+            <p>Use real production time, station balance, operator allocation, and workforce variance to improve standard settings, line balancing, and manpower planning.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Engineering and TE</h3>
+            <p>Review machine-level abnormal history, error-code patterns, longest test time, re-test tendencies, and maintenance reminders before issues become larger failures.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Planning and Management</h3>
+            <p>Compare planned work orders versus actual line activity, monitor output-delay risk, estimate labour cost, and support production decisions with visualised summary data.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section outputs reveal" id="reports">
+        <div class="section-heading">
+          <p class="eyebrow">Reporting Scope</p>
+          <h2>The product is designed to generate rich production reports, not just a live screen.</h2>
+        </div>
+        <div class="outputs-layout">
+          <div class="outputs-copy">
+            <p>
+              Based on the provided report examples and product materials, the reporting layer covers daily
+              and long-range views for work-order details, daily production, monitor tables, alerts, test
+              history, operation time, operator records, cost, utilisation, and suggestion-style evaluation.
+            </p>
+            <div class="output-tags">
+              <span>Dashboard</span>
+              <span>Daily Report</span>
+              <span>All-Time Report</span>
+              <span>Work Order Details</span>
+              <span>Station Monitor Table</span>
+              <span>Alert Records</span>
+              <span>Error Code Records</span>
+              <span>Operator Analysis</span>
+              <span>Workforce Cost</span>
+              <span>Utilisation</span>
+            </div>
+          </div>
+          <div class="terminal-card glass">
+            <div class="terminal-head">Typical Monitoring Topics</div>
+            <pre><code>Dashboard
+Current status / WIP pcs / Last activity
+
+Production
+Target vs actual / hourly capacity / delay risk
+
+Workforce
+Actual vs standard manpower / operator status
+
+Quality
+Test errors / error codes / station records
+
+Cost
+Projected workforce cost / cost per station / per DUT</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="report-breakdown">
+        <div class="section-heading">
+          <p class="eyebrow">Report Breakdown</p>
+          <h2>The report structure already supports a deep production review format.</h2>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-card">
+            <h3>Work Order Details</h3>
+            <p>Work-order number, model, part, production stage, line status, route stages, and descriptive context.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Daily Production</h3>
+            <p>Production table, target comparison, hourly capacity, actual output, and output history.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Monitor Records</h3>
+            <p>Monitor table, stage graph gallery, station overview, WIP state, and time-based operator records.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Alert Records</h3>
+            <p>Automatic alert logs, response records, production delay risk views, and work-order risk indicators.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Test and Error Records</h3>
+            <p>Error-code logging, pie charts, event timelines, operator correlations, and station error summaries.</p>
+          </article>
+          <article class="detail-card">
+            <h3>Time, Operator, Cost, and Utilisation</h3>
+            <p>Operation-time tables, operator counts, labour cost, per-station cost, cost-per-piece, and utilisation evaluation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section reveal" id="manual">
+        <div class="section-heading">
+          <p class="eyebrow">User Manual</p>
+          <h2>The product manual is included directly in this website package.</h2>
+        </div>
+        <div class="manual-panel">
+          <div class="manual-copy">
+            <span class="contact-label">PDF Manual</span>
+            <h3>Global Smart Production Monitoring System - User Manual</h3>
+            <p>
+              Open the PDF manual for product overview, detailed functions, workflow guidance,
+              and operating reference for the monitoring system.
+            </p>
+          </div>
+          <div class="manual-actions">
+            <a
+              class="button button-primary"
+              href="user_manual/Global%20Smart%20Production%20Monitoring%20System%20-%20User%20Manual.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open Manual PDF
+            </a>
+            <a
+              class="button button-secondary"
+              href="user_manual/Global%20Smart%20Production%20Monitoring%20System%20-%20User%20Manual.pdf"
+              download
+            >
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact reveal" id="contact">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>For production monitoring demos, dashboard customization, or report design discussion, please get in touch.</h2>
+            <p class="contact-note">
+              This product is aimed at manufacturing supervisors, IE, engineering, planning, and management teams that need clearer realtime visibility and production reporting.
+            </p>
+          </div>
+          <div class="contact-card">
+            <span class="contact-label">Product Contact</span>
+            <h3>Email GeckoAI Team</h3>
+            <p>Discuss monitoring workflows, alert rules, data integration, and reporting requirements.</p>
+            <a class="contact-email" href="mailto:geckoai.contact@gmail.com?subject=GeckoAI%20Monitoring%20Product%20Inquiry">
+              geckoai.contact@gmail.com
+            </a>
+            <a class="button button-primary contact-button" href="mailto:geckoai.contact@gmail.com?subject=GeckoAI%20Monitoring%20Product%20Inquiry">
+              Send Email
+            </a>
+            <p class="contact-help">The button opens your default email app with the recipient already filled in.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>GeckoAI Smart Production Monitoring Product</p>
+      <p>Realtime monitoring, alerts, analysis, and reporting</p>
+    </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close image viewer" data-lightbox-close>&times;</button>
+    <div class="lightbox-dialog">
+      <img src="" alt="" id="lightboxImage" />
+      <div class="lightbox-html" id="lightboxHtml"></div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
