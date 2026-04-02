@@ -2,6 +2,8 @@ const revealItems = document.querySelectorAll(".reveal");
 const navLinks = document.querySelectorAll(".nav a");
 const sections = Array.from(document.querySelectorAll("main section[id]"));
 const carousel = document.querySelector("[data-carousel]");
+const productDropdown = document.querySelector("[data-product-dropdown]");
+const productDropdownToggle = document.querySelector("[data-product-dropdown-toggle]");
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const lightboxHtml = document.getElementById("lightboxHtml");
@@ -41,6 +43,27 @@ const syncActiveNav = () => {
 
 syncActiveNav();
 window.addEventListener("scroll", syncActiveNav, { passive: true });
+
+if (productDropdown && productDropdownToggle) {
+  productDropdownToggle.addEventListener("click", () => {
+    const isOpen = productDropdown.classList.toggle("is-open");
+    productDropdownToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!productDropdown.contains(event.target)) {
+      productDropdown.classList.remove("is-open");
+      productDropdownToggle.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  productDropdown.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      productDropdown.classList.remove("is-open");
+      productDropdownToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
 
 if (carousel) {
   const slides = Array.from(carousel.querySelectorAll("[data-slide]"));

@@ -33,90 +33,101 @@
         <a href="computer-vision.html">Computer Vision</a>
         <a href="smart-production-monitoring.html">Smart Production Monitoring</a>
       </nav>
-      <a class="nav-cta" href="computer-vision.html">
-        Open Product
-      </a>
+      <div class="nav-dropdown" data-product-dropdown>
+        <button class="nav-cta nav-dropdown-toggle" type="button" aria-expanded="false" data-product-dropdown-toggle>
+          Open Product
+        </button>
+        <div class="nav-dropdown-menu" data-product-dropdown-menu>
+          <a href="computer-vision.html">Open Computer Vision Product</a>
+          <a href="smart-production-monitoring.html">Open Smart Production Monitoring</a>
+        </div>
+      </div>
     </header>
 
     <main>
       <section class="hero reveal hero-browser" id="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Browse GeckoAI Products</p>
-          <h1>Choose a product page to enter.</h1>
+          <p class="eyebrow"><span class="nowrap">GeckoAI</span> Products</p>
+          <h1 class="hero-title-browser">Explore <span class="nowrap">GeckoAI</span> products.</h1>
           <p class="hero-lead">
-            This first page is the GeckoAI product browser. It gives a brief introduction to each product,
-            then lets visitors jump into the dedicated product page with one click.
+            Review the available products below and open the product page that matches your workflow.
           </p>
-        </div>
-
-        <div class="hero-stage">
-          <div class="signal-card glass">
-            <span class="signal-label">How It Works</span>
-            <div class="signal-grid">
-              <div>
-                <strong>Step 1</strong>
-                <p>Browse the available GeckoAI products</p>
-              </div>
-              <div>
-                <strong>Step 2</strong>
-                <p>Read a short brief for each option</p>
-              </div>
-              <div>
-                <strong>Step 3</strong>
-                <p>Click the button for the product page</p>
-              </div>
-              <div>
-                <strong>Step 4</strong>
-                <p>Explore the full product details there</p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
       <section class="section reveal" id="products">
-        <div class="section-heading">
-          <p class="eyebrow">Product Options</p>
-          <h2>Two products, two dedicated pages.</h2>
-        </div>
         <div class="product-grid">
-          <article class="product-card product-card-live">
+          <a class="product-card product-card-live product-card-link" href="computer-vision.html">
             <div class="product-card-head">
               <span class="product-number">01</span>
-              <span class="product-status">Now</span>
+              <span class="product-status">Available</span>
             </div>
             <h3>Computer Vision Product</h3>
+            <p class="product-strength">
+              Strength: Best for image-based production workflows such as labeling, visual inspection,
+              defect review, OCR traceability, and report-ready quality records across the line.
+            </p>
             <p>
-              GeckoAI's current product for AI labeling, YOLO training, detection, golden comparison,
-              OCR traceability, and reporting across industrial QA workflows.
+              An industrial computer vision platform for AI labeling, YOLO training, detection, golden
+              comparison, OCR traceability, and inspection reporting.
             </p>
             <ul>
-              <li>Ready now with a full dedicated product page</li>
-              <li>Best for industrial inspection, QA, and visual workflow automation</li>
+              <li>Strong in AI labeling, dataset creation, and YOLO training preparation for visual workflows</li>
+              <li>Supports defect inspection, golden comparison, OCR traceability, and report-ready quality records</li>
+              <li>Best when product decisions depend on images, defects, text reading, and inspection evidence</li>
             </ul>
             <div class="product-actions">
-              <a class="button button-primary" href="computer-vision.html">Open Computer Vision Product</a>
+              <span class="button button-secondary product-select-button">Open Computer Vision Product</span>
             </div>
-          </article>
+          </a>
 
-          <article class="product-card product-card-upcoming">
+          <a class="product-card product-card-upcoming product-card-link" href="smart-production-monitoring.html">
             <div class="product-card-head">
               <span class="product-number">02</span>
-              <span class="product-status muted">Monitoring</span>
+              <span class="product-status">Available</span>
             </div>
             <h3>Global Smart Production Monitoring System</h3>
+            <p class="product-strength">
+              Strength: Best for full product-line production workflow visibility, including work-order
+              tracking, station status, operator activity, alerts, cost follow-up, and management reporting.
+            </p>
             <p>
               A cloud-oriented production monitoring product for real-time work-order visibility, station
               activity tracking, workforce and cost analysis, alerting, and HTML-style production reports.
             </p>
             <ul>
-              <li>Covers dashboard, realtime status, alerts, workforce, cost, and error-code analysis</li>
-              <li>Built for line supervisors, IE, manufacturing, engineering, and planning teams</li>
+              <li>Strong in real-time work-order tracking, station monitoring, and operator status visibility</li>
+              <li>Supports alerts, abnormal-event follow-up, workforce and cost analysis, and error-code review</li>
+              <li>Best for production-line management, progress reporting, and operational decisions across the line</li>
             </ul>
             <div class="product-actions">
-              <a class="button button-secondary" href="smart-production-monitoring.html">Open Monitoring Product</a>
+              <span class="button button-secondary product-select-button">Open Monitoring Product</span>
             </div>
-          </article>
+          </a>
+        </div>
+      </section>
+
+      <section class="section contact reveal" id="contact">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>For product demos, deployment discussions, or partnership inquiries, please contact us.</h2>
+            <p class="contact-note">
+              We can help you choose the right GeckoAI product and discuss customized workflows for your production or inspection needs.
+            </p>
+          </div>
+          <div class="contact-card">
+            <span class="contact-label">Product Contact</span>
+            <h3>Email GeckoAI Team</h3>
+            <p>Send product questions, demo requests, or collaboration inquiries directly to our mailbox.</p>
+            <a class="contact-email" href="mailto:geckoai.contact@gmail.com?subject=GeckoAI%20Product%20Inquiry">
+              geckoai.contact@gmail.com
+            </a>
+            <a class="button button-primary contact-button" href="mailto:geckoai.contact@gmail.com?subject=GeckoAI%20Product%20Inquiry&body=Hello%20GeckoAI%20team%2C%0A%0AI%20would%20like%20to%20learn%20more%20about%20your%20products.%0A">
+              Send Email
+            </a>
+            <p class="contact-help">Clicking the button opens your default email app with the recipient already filled in.</p>
+          </div>
         </div>
       </section>
     </main>

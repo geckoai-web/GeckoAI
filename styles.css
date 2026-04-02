@@ -30,7 +30,8 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
-.site-shell { position: relative; overflow: hidden; }
+.nowrap { white-space: nowrap; }
+.site-shell { position: relative; overflow-x: hidden; overflow-y: visible; }
 .site-shell::before,
 .site-shell::after {
   content: "";
@@ -55,7 +56,9 @@ a { color: inherit; text-decoration: none; }
   background: rgba(106, 227, 195, 0.18);
 }
 
-.topbar, main, .footer { position: relative; z-index: 1; }
+.topbar, main, .footer { position: relative; }
+.topbar { z-index: 4; }
+main, .footer { z-index: 1; }
 
 .topbar {
   width: min(calc(100% - 32px), var(--content-width));
@@ -109,6 +112,56 @@ a { color: inherit; text-decoration: none; }
   border-radius: 999px;
   border: 1px solid rgba(139, 195, 255, 0.28);
   background: rgba(139, 195, 255, 0.08);
+  color: var(--text);
+  font-size: 1rem;
+}
+.nav-dropdown {
+  position: relative;
+  z-index: 6;
+}
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.nav-dropdown-toggle::after {
+  content: "v";
+  margin-left: 10px;
+  font-size: 0.9rem;
+}
+.nav-dropdown.is-open .nav-dropdown-toggle::after {
+  content: "^";
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 280px;
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: rgba(8, 17, 31, 0.96);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+  z-index: 5;
+  pointer-events: auto;
+}
+.nav-dropdown:not(.is-open) .nav-dropdown-menu {
+  display: none;
+}
+.nav-dropdown-menu a {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 14px;
+  color: #e7f1fb;
+}
+.nav-dropdown-menu a:hover {
+  background: rgba(139, 195, 255, 0.12);
 }
 main {
   width: min(calc(100% - 32px), var(--content-width));
@@ -120,12 +173,12 @@ main {
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
   gap: 34px;
   align-items: center;
-  padding: 76px 0 42px;
+  padding: 52px 0 20px;
 }
 
 .hero-browser {
-  min-height: calc(100vh - 150px);
-  align-items: center;
+  min-height: auto;
+  align-items: start;
 }
 
 .eyebrow {
@@ -139,14 +192,20 @@ main {
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  line-height: 1.02;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  line-height: 1.08;
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .hero h1.hero-title-compact {
-  font-size: clamp(1.9rem, 3.6vw, 3rem);
-  line-height: 1.12;
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.18;
+}
+
+.hero h1.hero-title-browser {
+  font-size: clamp(2.2rem, 3.8vw, 3.5rem);
+  white-space: nowrap;
 }
 
 .hero-lead,
@@ -493,12 +552,13 @@ main {
   font-size: 1.05rem;
 }
 
-.section { padding: 58px 0; }
+.section { padding: 40px 0; }
 .section-heading { max-width: 760px; margin-bottom: 26px; }
 .section-heading h2 {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.08;
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+  line-height: 1.16;
+  text-wrap: balance;
 }
 .section-note {
   margin: 14px 0 0;
@@ -511,7 +571,10 @@ main {
 .scenario-grid,
 .product-grid { display: grid; gap: 18px; }
 .card-grid { grid-template-columns: repeat(4, 1fr); }
-.product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.product-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
 
 .function-photo-grid,
 .detail-grid,
@@ -764,7 +827,9 @@ main {
 .manual-copy h3 {
   margin: 12px 0 12px;
   font-family: "Sora", sans-serif;
-  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
 .manual-copy p {
@@ -784,18 +849,45 @@ main {
   padding: 28px;
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.product-card-link:hover {
+  transform: translateY(-4px);
+  border-color: rgba(139, 195, 255, 0.32);
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.34);
 }
 
 .product-card h3 {
   margin: 18px 0 14px;
   font-family: "Sora", sans-serif;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  line-height: 1.18;
+  text-wrap: balance;
 }
 
 .product-card p {
   margin: 0;
   color: var(--muted);
   line-height: 1.8;
+}
+
+.product-strength {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 177, 95, 0.1);
+  border: 1px solid rgba(255, 177, 95, 0.22);
+  color: #ffe8c8;
+  line-height: 1.6;
 }
 
 .product-card ul {
@@ -847,19 +939,26 @@ main {
 
 .product-card-live {
   background:
-    radial-gradient(circle at top left, rgba(106, 227, 195, 0.16), transparent 32%),
+    radial-gradient(circle at top left, rgba(106, 227, 195, 0.11), transparent 32%),
     linear-gradient(180deg, rgba(10, 22, 39, 0.82), rgba(8, 17, 31, 0.92));
 }
 
 .product-card-upcoming {
   background:
-    radial-gradient(circle at top right, rgba(139, 195, 255, 0.16), transparent 34%),
+    radial-gradient(circle at top right, rgba(139, 195, 255, 0.11), transparent 34%),
     linear-gradient(180deg, rgba(11, 20, 34, 0.84), rgba(8, 17, 31, 0.94));
+}
+
+.product-select-button {
+  min-width: 100%;
+  text-align: center;
+  justify-content: center;
 }
 
 .product-actions {
   justify-content: flex-start;
-  margin-top: 24px;
+  margin-top: auto;
+  padding-top: 24px;
 }
 
 .placeholder-panel {
@@ -895,6 +994,8 @@ main {
 .timeline-step h3 {
   margin: 16px 0 12px;
   font-size: 1.18rem;
+  line-height: 1.22;
+  text-wrap: balance;
 }
 
 .card-index { color: var(--accent-2); }
@@ -1460,6 +1561,14 @@ main {
     flex-wrap: wrap;
     gap: 10px 16px;
   }
+  .nav-dropdown {
+    width: 100%;
+  }
+  .nav-dropdown-menu {
+    left: 0;
+    right: 0;
+    min-width: 0;
+  }
   .hero,
   .stats,
   .card-grid,
@@ -1497,6 +1606,10 @@ main {
   main,
   .footer { width: min(calc(100% - 20px), var(--content-width)); }
   .hero h1 { font-size: 2.5rem; }
+  .hero h1.hero-title-browser {
+    font-size: 2.5rem;
+    white-space: normal;
+  }
   .button,
   .nav-cta {
     width: 100%;
@@ -1566,3 +1679,4 @@ main {
     padding-top: 0;
   }
 }
+
