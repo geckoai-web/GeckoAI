@@ -34,6 +34,7 @@
         <a href="#functions">Functions</a>
         <a href="#alerts">Alerts</a>
         <a href="#reports">Reports</a>
+        <a href="#manager-view">Manager View</a>
         <a href="#manual">Manual</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -106,43 +107,43 @@
                 <tbody>
                   <tr>
                     <td>Work Order</td>
-                    <td>WM00ZF1076342</td>
+                    <td>WM00HF1076372</td>
                   </tr>
                   <tr>
                     <td>Current Status</td>
-                    <td>In Production</td>
+                    <td>IN PRODUCTION</td>
                   </tr>
                   <tr>
-                    <td>Now Done</td>
-                    <td>108 / 50 pcs</td>
+                    <td>Today Output</td>
+                    <td>0 / 60 pcs</td>
                   </tr>
                   <tr>
                     <td>17:00 Estimate</td>
-                    <td>139 Cap / 287 / 50</td>
+                    <td>- / 60 pcs, capped at 364</td>
                   </tr>
                   <tr>
                     <td>20:00 Estimate</td>
-                    <td>185 Cap / 287 / 50</td>
+                    <td>- / 60 pcs, capped at 364</td>
                   </tr>
                   <tr>
-                    <td>All Time Progress</td>
-                    <td>1050 / 216 (0)</td>
+                    <td>All-Time Schedule</td>
+                    <td>0 / 480 now, 0 / 1500 all</td>
                   </tr>
                   <tr>
                     <td>Current Cost</td>
-                    <td>$47,700 (78.1%)</td>
+                    <td>Actual $3,951 vs Min $3,818</td>
                   </tr>
                   <tr>
                     <td>Operator Summary</td>
-                    <td>Actual / IE: 10 / 4 (+6)</td>
+                    <td>3 observed, 3 active, 0 idle</td>
                   </tr>
                   <tr>
-                    <td>Alert Example</td>
-                    <td>[not responded] FINAL08-FWUPDATE timeout line</td>
+                    <td>Issue Focus</td>
+                    <td>FINAL_TEST fail cluster, 5 today and 10 all-time</td>
                   </tr>
                   <tr>
                     <td>Recommendation</td>
-                    <td>Prioritize FINAL06-CAMERA and FINAL05-AUDIO</td>
+                    <td>Investigate no-output gap, check FINAL_TEST, rebalance manpower</td>
                   </tr>
                 </tbody>
               </table>
@@ -500,6 +501,121 @@ Projected workforce cost / cost per station / per DUT</code></pre>
         </div>
       </section>
 
+      <section class="section reveal" id="manager-view">
+        <div class="section-heading">
+          <p class="eyebrow">Manager Remote Monitoring</p>
+          <h2>These reports let a manager see what is happening, what the issue is, and what to do next without being on the line.</h2>
+        </div>
+        <div class="manager-visuals">
+          <div class="manager-strip">
+            <article class="manager-chip">
+              <span class="manager-chip-label">Live Status</span>
+              <strong>IN PRODUCTION</strong>
+              <small>Line is open and operators are present.</small>
+            </article>
+            <article class="manager-chip">
+              <span class="manager-chip-label">Today Output</span>
+              <strong>0 / 60 pcs</strong>
+              <small>Running, but no finished output yet.</small>
+            </article>
+            <article class="manager-chip">
+              <span class="manager-chip-label">Main Issue</span>
+              <strong>FINAL_TEST</strong>
+              <small>Highest fail station in daily and record views.</small>
+            </article>
+            <article class="manager-chip">
+              <span class="manager-chip-label">Escalation</span>
+              <strong>Check Now</strong>
+              <small>Zero-output gap, test failure pattern, manpower plan.</small>
+            </article>
+          </div>
+
+          <div class="manager-report-grid">
+            <article class="manager-report-card">
+              <div class="manager-report-head">
+                <h3>Mini Daily Report</h3>
+                <span class="manager-pill red">Behind Schedule</span>
+              </div>
+              <table class="manager-report-table">
+                <tbody>
+                  <tr>
+                    <th>Work Order</th>
+                    <td>WM00HF1076372</td>
+                  </tr>
+                  <tr>
+                    <th>Current State</th>
+                    <td>IN PRODUCTION, 3 operators active</td>
+                  </tr>
+                  <tr>
+                    <th>Output</th>
+                    <td>0 / 60 pcs today</td>
+                  </tr>
+                  <tr>
+                    <th>17:00 / 20:00</th>
+                    <td>- / 60, capped at 364</td>
+                  </tr>
+                  <tr>
+                    <th>Meaning</th>
+                    <td>The line is running but shipment progress has not started.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="manager-report-card warm">
+              <div class="manager-report-head">
+                <h3>Mini Record Report</h3>
+                <span class="manager-pill amber">Repeated Issue</span>
+              </div>
+              <table class="manager-report-table">
+                <tbody>
+                  <tr>
+                    <th>Schedule Gap</th>
+                    <td>7 days with schedule but no progress</td>
+                  </tr>
+                  <tr>
+                    <th>Fail Station</th>
+                    <td>FINAL_TEST, 5 fails today, 10 fails all-time</td>
+                  </tr>
+                  <tr>
+                    <th>NG Pattern</th>
+                    <td>FINAL_TEST also has 6 all-time NG records</td>
+                  </tr>
+                  <tr>
+                    <th>Cost Signal</th>
+                    <td>Actual $3,951 vs lower scenario $3,818</td>
+                  </tr>
+                  <tr>
+                    <th>Meaning</th>
+                    <td>The issue is not just today; it is sustained and measurable.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+          </div>
+
+          <div class="manager-actions">
+            <article class="manager-action">
+              <span>1</span>
+              <strong>Ask why output is zero</strong>
+              <p>Confirm whether material, station flow, or release status is blocking completed units.</p>
+            </article>
+            <article class="manager-action">
+              <span>2</span>
+              <strong>Review FINAL_TEST</strong>
+              <p>Check repeated fail units, time windows, and whether TE needs immediate support.</p>
+            </article>
+            <article class="manager-action">
+              <span>3</span>
+              <strong>Recheck manpower</strong>
+              <p>Compare actual staffing and cost scenario to see whether rebalance is needed.</p>
+            </article>
+          </div>
+
+          <p class="manager-note">This is intentionally short: one visual daily snapshot, one all-time issue snapshot, and three manager actions. It communicates the same report meaning with less reading.</p>
+        </div>
+      </section>
+
       <section class="section reveal" id="report-breakdown">
         <div class="section-heading">
           <p class="eyebrow">Report Breakdown</p>
@@ -635,3 +751,4 @@ Projected workforce cost / cost per station / per DUT</code></pre>
   <script src="app.js"></script>
 </body>
 </html>
+
